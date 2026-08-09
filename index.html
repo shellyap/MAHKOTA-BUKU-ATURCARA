@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="ms" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Aturcara Interactive MAHKOTA 2025/2026</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f17;
+            color: #f1f5f9;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+        .batik-bg {
+            background-color: #0b0f17;
+            background-image: radial-gradient(#1e293b 1px, transparent 1px), radial-gradient(#1e293b 1px, #0b0f17 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        .glow-gold {
+            box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.25);
+        }
+        .logo-glow {
+            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.45));
+        }
+    </style>
+</head>
+<body class="batik-bg min-h-screen text-slate-100 flex flex-col md:flex-row antialiased selection:bg-amber-500 selection:text-slate-900">
+
+    <!-- Mobile Top Navigation Bar -->
+    <header class="md:hidden sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 overflow-hidden bg-transparent flex items-center justify-center">
+                <img id="mobile-header-logo" src="https://i.postimg.cc/HnVHTfxZ/6249199977603208125.jpg" alt="Logo MAHKOTA" class="h-full w-auto object-contain logo-glow">
+            </div>
+            <div>
+                <h1 class="text-sm font-bold text-amber-400 font-serif leading-none">MAHKOTA RANAU</h1>
+                <p class="text-[10px] text-slate-400 mt-0.5">2025 / 2026</p>
+            </div>
+        </div>
+        <button id="mobile-menu-btn" onclick="window.toggleMobileSidebar()" class="p-2 text-slate-300 hover:text-amber-400 focus:outline-none">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950/95 border-r border-slate-800/80 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col justify-between backdrop-blur-xl">
+        <!-- Sidebar Header -->
+        <div class="p-6 text-center border-b border-slate-800/80 relative">
+            <button onclick="window.toggleMobileSidebar()" class="md:hidden absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="flex justify-center mb-3">
+                <div class="relative w-28 h-24 flex items-center justify-center">
+                    <img id="sidebar-logo" src="https://i.postimg.cc/HnVHTfxZ/6249199977603208125.jpg" alt="Logo MAHKOTA" class="max-w-full max-h-full object-contain logo-glow">
+                </div>
+            </div>
+            <h2 class="text-lg font-bold text-amber-400 font-serif tracking-wide">MAHKOTA 2025/2026</h2>
+            <p class="text-[11px] text-slate-400 mt-1 uppercase tracking-wider font-medium">PPD Ranau • Sabah</p>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="p-4 space-y-2 flex-1 overflow-y-auto">
+            <button onclick="window.switchTab('tab-cover')" id="nav-tab-cover" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-amber-400 bg-amber-500/10 border border-amber-500/30">
+                <i class="fa-solid fa-book-open text-base w-5 text-center"></i>
+                <span>Muka Depan</span>
+            </button>
+
+            <button onclick="window.switchTab('tab-intro')" id="nav-tab-intro" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">
+                <i class="fa-solid fa-circle-info text-base w-5 text-center"></i>
+                <span>Pengenalan & Atur Cara</span>
+            </button>
+
+            <button onclick="window.switchTab('tab-ajk')" id="nav-tab-ajk" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">
+                <i class="fa-solid fa-users text-base w-5 text-center"></i>
+                <span>Jawatankuasa</span>
+            </button>
+
+            <button onclick="window.switchTab('tab-anugerah')" id="nav-tab-anugerah" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">
+                <i class="fa-solid fa-trophy text-base w-5 text-center"></i>
+                <span>Senarai Anugerah</span>
+            </button>
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="p-4 border-t border-slate-800 text-xs text-slate-400 space-y-2">
+            <div id="firebase-status" class="flex items-center space-x-2 text-[11px] text-emerald-400 bg-slate-900/80 p-2 rounded-lg border border-slate-800">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="truncate">Cloud Synced: Aktif</span>
+            </div>
+            <p class="text-center text-[10px] text-slate-500">
+                Jabatan Pendidikan Negeri Sabah<br>Pejabat Pendidikan Daerah Ranau
+            </p>
+            <p class="text-center text-[9px] text-slate-500 font-mono tracking-widest uppercase opacity-75">Created by YapSh</p>
+        </div>
+    </aside>
+
+    <!-- Overlay for mobile sidebar -->
+    <div id="sidebar-overlay" onclick="window.toggleMobileSidebar()" class="fixed inset-0 bg-slate-950/70 z-40 hidden md:hidden backdrop-blur-sm"></div>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 md:ml-72 min-h-screen flex flex-col p-4 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
+
+        <!-- ==================== TAB 1: COVER PAGE ==================== -->
+        <section id="tab-cover" class="tab-content block space-y-8 animate-fadeIn">
+            <!-- Cover Hero Banner -->
+            <div class="relative rounded-3xl overflow-hidden border border-amber-500/30 bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/40 p-8 md:p-12 text-center glow-gold">
+                <!-- Background ambient glow -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+                    <span class="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-amber-500/20 text-amber-300 border border-amber-500/30 inline-block">
+                        Buku Aturcara Digital Rasmi
+                    </span>
+
+                    <!-- Main Cover Full Uncropped Logo with Auto Transparent Background -->
+                    <div class="flex justify-center my-6">
+                        <div class="relative w-full max-w-xs md:max-w-md p-2 flex items-center justify-center">
+                            <img id="cover-logo" src="https://i.postimg.cc/HnVHTfxZ/6249199977603208125.jpg" alt="Logo MAHKOTA RANAU" class="w-full h-auto object-contain logo-glow transition-transform hover:scale-105 duration-300">
+                        </div>
+                    </div>
+
+                    <h1 class="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 leading-tight">
+                        MAJLIS PENGIKTIRAFAN DAN KECEMERLANGAN PENDIDIKAN RANAU
+                    </h1>
+                    <p class="text-lg md:text-xl text-amber-300/90 font-serif font-semibold tracking-wide">
+                        SESI 2025 / 2026
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap justify-center gap-3 text-xs md:text-sm font-medium text-slate-300">
+                        <span class="bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700/60 flex items-center space-x-2">
+                            <i class="fa-regular fa-calendar-check text-amber-400"></i>
+                            <span>20 Ogos 2026 (Khamis)</span>
+                        </span>
+                        <span class="bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700/60 flex items-center space-x-2">
+                            <i class="fa-regular fa-clock text-amber-400"></i>
+                            <span>7.00 Pagi - 1.30 Petang</span>
+                        </span>
+                        <span class="bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700/60 flex items-center space-x-2">
+                            <i class="fa-solid fa-location-dot text-amber-400"></i>
+                            <span>Dewan Masyarakat Ranau</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Highlights Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-amber-300 font-serif">Tetamu Perasmi</h3>
+                    <p class="text-sm text-slate-300">Pengarah, Jabatan Pendidikan Negeri Sabah</p>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-amber-300 font-serif">Tema Pakaian</h3>
+                    <p class="text-sm text-slate-300 font-semibold text-amber-200">ETNIK CONTEMPORARY / BATIK</p>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-amber-300 font-serif">4 Anugerah Gabungan</h3>
+                    <p class="text-sm text-slate-300">MAPenS • APC 2025 • MEKAR • MAKMUR</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 2: PENGENALAN & ATUR CARA ==================== -->
+        <section id="tab-intro" class="tab-content hidden space-y-8 animate-fadeIn">
+            <!-- Background & Objectives -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-amber-400">Pengenalan & Latar Belakang</h2>
+                    <p class="text-sm text-slate-400 mt-1">Majlis Pengiktirafan dan Apresiasi Warga Pendidikan Daerah Ranau 2025/2026</p>
+                </div>
+
+                <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+                    Majlis Pengiktirafan dan Apresiasi Warga Pendidikan Daerah Ranau 2025/2026 merupakan gabungan empat majlis utama iaitu <strong class="text-amber-300">Majlis Apresiasi Pengurusan Sekolah (MAPenS 2026)</strong>, <strong class="text-amber-300">Anugerah Perkhidmatan Cemerlang (APC 2025)</strong>, <strong class="text-amber-300">Majlis Pengiktirafan Kecemerlangan Akademik Ranau (MEKAR 2025)</strong> dan <strong class="text-amber-300">Majlis Apresiasi Sektor Pembangunan Murid (MAKMUR 2026)</strong>. Gabungan ini dilaksanakan sebagai usaha menyelaras pengiktirafan kepada warga pendidikan, guru, murid dan sekolah yang telah menunjukkan kecemerlangan di peringkat daerah Ranau.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="bg-slate-950/60 p-5 rounded-xl border border-slate-800 space-y-3">
+                        <h3 class="text-lg font-bold text-amber-400 font-serif flex items-center space-x-2">
+                            <i class="fa-solid fa-bullseye text-amber-400"></i>
+                            <span>Matlamat Utama</span>
+                        </h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Memberi pengiktirafan dan penghargaan kepada warga Pendidikan daerah Ranau atas kecemerlangan dan sumbangan mereka dalam pelbagai bidang pendidikan.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-950/60 p-5 rounded-xl border border-slate-800 space-y-3">
+                        <h3 class="text-lg font-bold text-amber-400 font-serif flex items-center space-x-2">
+                            <i class="fa-solid fa-list-check text-amber-400"></i>
+                            <span>Objektif Khusus</span>
+                        </h3>
+                        <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
+                            <li>Mengiktiraf kecemerlangan guru, murid dan sekolah dalam bidang akademik, kokurikulum, HEM dan sukan.</li>
+                            <li>Memberi motivasi untuk terus berinovasi dan berprestasi tinggi.</li>
+                            <li>Memupuk semangat perpaduan dan kebersamaan warga pendidikan.</li>
+                            <li>Meningkatkan imej dan martabat profesion keguruan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: ATUR CARA MAJLIS -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
+                <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-4 gap-2">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-serif font-bold text-amber-400">Atur Cara Majlis</h3>
+                        <p class="text-xs md:text-sm text-slate-400">20 Ogos 2026 (Khamis) • Dewan Masyarakat Ranau</p>
+                    </div>
+                    <span class="px-3 py-1 text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 rounded-full w-fit">
+                        Masa Rasmi (Pagi - Petang)
+                    </span>
+                </div>
+
+                <!-- Timeline List -->
+                <div class="space-y-4 relative before:absolute before:inset-0 before:left-3 md:before:left-32 before:w-0.5 before:bg-slate-800">
+                    <div class="relative flex flex-col md:flex-row md:items-center group">
+                        <div class="flex items-center md:w-32 mb-1 md:mb-0">
+                            <span class="w-6 h-6 rounded-full bg-amber-500 border-4 border-slate-900 z-10 flex-shrink-0"></span>
+                            <span class="ml-4 md:ml-0 text-xs font-bold text-amber-400">07.00 Pagi</span>
+                        </div>
+                        <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1">
+                            <p class="text-sm font-semibold text-slate-200">Ketibaan Urus Setia & Pendaftaran Penerima Anugerah</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-center group">
+                        <div class="flex items-center md:w-32 mb-1 md:mb-0">
+                            <span class="w-6 h-6 rounded-full bg-slate-700 border-4 border-slate-900 z-10 flex-shrink-0"></span>
+                            <span class="ml-4 md:ml-0 text-xs font-bold text-slate-400">07.30 Pagi</span>
+                        </div>
+                        <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1">
+                            <p class="text-sm font-semibold text-slate-200">Ketibaan & Pendaftaran Para Jemputan</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Pengetua, Guru Besar, Pengerusi PIBG & Ketua Jabatan / Rakan Strategik</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-center group">
+                        <div class="flex items-center md:w-32 mb-1 md:mb-0">
+                            <span class="w-6 h-6 rounded-full bg-slate-700 border-4 border-slate-900 z-10 flex-shrink-0"></span>
+                            <span class="ml-4 md:ml-0 text-xs font-bold text-slate-400">07.45 Pagi</span>
+                        </div>
+                        <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1">
+                            <p class="text-sm font-semibold text-slate-200">Ketibaan Pegawai Pendidikan Daerah Ranau & Barisan Pegawai PPD</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-center group">
+                        <div class="flex items-center md:w-32 mb-1 md:mb-0">
+                            <span class="w-6 h-6 rounded-full bg-amber-400 border-4 border-slate-900 z-10 flex-shrink-0 ring-4 ring-amber-500/20"></span>
+                            <span class="ml-4 md:ml-0 text-xs font-bold text-amber-300">08.00 Pagi</span>
+                        </div>
+                        <div class="ml-10 md:ml-6 bg-amber-950/30 p-4 rounded-xl border border-amber-500/40 flex-1">
+                            <span class="px-2 py-0.5 text-[10px] uppercase font-bold bg-amber-500 text-slate-950 rounded mb-1 inline-block">Ketibaan Tetamu Kehormat</span>
+                            <p class="text-sm font-bold text-amber-200">YBhg. Pengarah Pendidikan Negeri Sabah</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-start group">
+                        <div class="flex items-center md:w-32 mb-1 md:mb-0 pt-1">
+                            <span class="w-6 h-6 rounded-full bg-slate-700 border-4 border-slate-900 z-10 flex-shrink-0"></span>
+                            <span class="ml-4 md:ml-0 text-xs font-bold text-slate-400">08.15 Pagi</span>
+                        </div>
+                        <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1 space-y-2">
+                            <p class="text-sm font-semibold text-slate-200">Acara Pembukaan Rasmi</p>
+                            <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+                                <li>Nyanyian Lagu Kebangsaan & Lagu Negeri</li>
+                                <li>Bacaan Ikrar & Doa</li>
+                                <li>Tarian Sambut Tamu</li>
+                                <li>Ucapan Alu-Aluan: Puan Barizah binti Mohd Kahar (PPD Ranau)</li>
+                                <li>Ucapan Perasmian: YBhg. Pengarah Pendidikan Negeri Sabah</li>
+                                <li>Gimik Perasmian Majlis MAHKOTA 2025/2026</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-center group">
+                        <div class="flex items-center md:w-32 mb-1 md:mb-0">
+                            <span class="w-6 h-6 rounded-full bg-amber-500 border-4 border-slate-900 z-10 flex-shrink-0"></span>
+                            <span class="ml-4 md:ml-0 text-xs font-bold text-amber-400">08.50 Pagi</span>
+                        </div>
+                        <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1">
+                            <p class="text-sm font-bold text-amber-300">Penyampaian Anugerah Perkhidmatan Cemerlang (APC)</p>
+                            <p class="text-xs text-slate-400">181 Penerima Anugerah</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-center group">
+                        <div class="flex items-center md:w-32 mb-1 md:mb-0">
+                            <span class="w-6 h-6 rounded-full bg-amber-500 border-4 border-slate-900 z-10 flex-shrink-0"></span>
+                            <span class="ml-4 md:ml-0 text-xs font-bold text-amber-400">10.00 Pagi</span>
+                        </div>
+                        <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1">
+                            <p class="text-sm font-bold text-amber-300">Penyampaian Anugerah MAHKOTA Institusi</p>
+                            <p class="text-xs text-slate-400">Pengiktirafan Sekolah Rendah & Menengah Cemerlang (356 Penerima)</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-center group">
+                        <div class="flex items-center md:w-32 mb-1 md:mb-0">
+                            <span class="w-6 h-6 rounded-full bg-amber-500 border-4 border-slate-900 z-10 flex-shrink-0"></span>
+                            <span class="ml-4 md:ml-0 text-xs font-bold text-amber-400">11.00 Pagi</span>
+                        </div>
+                        <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1">
+                            <p class="text-sm font-bold text-amber-300">Penyampaian Anugerah MAHKOTA Individu & Utama</p>
+                            <p class="text-xs text-slate-400">MEKAR, MAKMUR, Guru Ikon, Guru Berwibawa, Tokoh Kepimpinan & Tokoh Guru</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-center group">
+                        <div class="flex items-center md:w-32 mb-1 md:mb-0">
+                            <span class="w-6 h-6 rounded-full bg-slate-700 border-4 border-slate-900 z-10 flex-shrink-0"></span>
+                            <span class="ml-4 md:ml-0 text-xs font-bold text-slate-400">12.30 T/hari</span>
+                        </div>
+                        <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1">
+                            <p class="text-sm font-semibold text-slate-200">Penyampaian Cenderahati, Sesi Bergambar & Jamuan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rumusan Kehadiran -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-4">
+                <h3 class="text-xl font-serif font-bold text-amber-400">Rumusan Kehadiran Penerima Anugerah</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 pt-2">
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center">
+                        <p class="text-xs text-slate-400">MAPenS</p>
+                        <p class="text-2xl font-bold text-amber-400 mt-1">43</p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center">
+                        <p class="text-xs text-slate-400">APC</p>
+                        <p class="text-2xl font-bold text-amber-400 mt-1">181</p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center">
+                        <p class="text-xs text-slate-400">MEKAR</p>
+                        <p class="text-2xl font-bold text-amber-400 mt-1">259</p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center">
+                        <p class="text-xs text-slate-400">MAKMUR</p>
+                        <p class="text-2xl font-bold text-amber-400 mt-1">164</p>
+                    </div>
+                    <div class="col-span-2 md:col-span-1 bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl text-center">
+                        <p class="text-xs text-amber-300 font-semibold">JUMLAH KESELURUHAN</p>
+                        <p class="text-2xl font-bold text-amber-400 mt-1">647</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 3: JAWATANKUASA ==================== -->
+        <section id="tab-ajk" class="tab-content hidden space-y-8 animate-fadeIn">
+            <!-- AJK Induk -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-amber-400">Ahli Jawatankuasa Induk</h2>
+                    <p class="text-xs md:text-sm text-slate-400 mt-1">Kepimpinan & Pengurusan Tertinggi Majlis MAHKOTA 2025/2026</p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-slate-300">
+                        <thead class="text-xs text-amber-300 uppercase bg-slate-950 border-b border-slate-800">
+                            <tr>
+                                <th class="px-4 py-3">Jawatan</th>
+                                <th class="px-4 py-3">Nama Pegawai</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60 bg-slate-950/40">
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Penaung</td><td class="px-4 py-3">Pengarah, Jabatan Pendidikan Negeri Sabah</td></tr>
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Pengerusi</td><td class="px-4 py-3">Puan Barizah binti Mohd Kahar (PPD Ranau)</td></tr>
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Timbalan Pengerusi I</td><td class="px-4 py-3">Encik Vincent Sabin @ William (Timbalan PPD Pembelajaran)</td></tr>
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Timbalan Pengerusi II</td><td class="px-4 py-3">Encik Jenuil Makinda @ Boginda (Timbalan PPD Pengurusan Sekolah)</td></tr>
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Timbalan Pengerusi III</td><td class="px-4 py-3">Encik Sandy Kariki @ Gerald (Timbalan PPD Pembangunan Murid)</td></tr>
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Timbalan Pengerusi IV</td><td class="px-4 py-3">Encik Junaidi bin Yunus (Timbalan PPD Perancangan)</td></tr>
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Timbalan Pengerusi V</td><td class="px-4 py-3">Puan Prescilia binti Deukin (Pegawai Eksekutif Tinggi)</td></tr>
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Setiausaha</td><td class="px-4 py-3">Puan Shellsia Yap</td></tr>
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Naib Setiausaha</td><td class="px-4 py-3">Puan Adrina Maradan, Puan Lisah Kilau, Puan Asniza Sairin, Puan Nony Porodtong</td></tr>
+                            <tr><td class="px-4 py-3 font-semibold text-amber-400">Bendahari</td><td class="px-4 py-3">Puan Irna Jibing</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- AJK Pelaksana Accordion -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
+                <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-serif font-bold text-amber-400">Jawatankuasa Pelaksana</h2>
+                        <p class="text-xs md:text-sm text-slate-400 mt-1">Klik pada nama jawatankuasa untuk melihat ahli lengkap</p>
+                    </div>
+                    <input type="text" id="search-ajk" oninput="window.filterAJK()" placeholder="Cari AJK atau nama pegawai..." class="bg-slate-950 border border-slate-800 text-sm rounded-xl px-4 py-2 w-full md:w-64 focus:outline-none focus:border-amber-500">
+                </div>
+
+                <div id="ajk-accordion-container" class="space-y-3">
+                    <!-- Dynamic AJK items inserted via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 4: SENARAI ANUGERAH ==================== -->
+        <section id="tab-anugerah" class="tab-content hidden space-y-8 animate-fadeIn">
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
+                <div class="border-b border-slate-800 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-serif font-bold text-slate-100">
+                            SENARAI ANUGERAH & PENERIMA
+                        </h2>
+                        <p class="text-xs md:text-sm text-amber-400 font-medium mt-1">
+                            Kategori MAPenS, APC, MEKAR dan MAKMUR (647 Penerima Kompleks)
+                        </p>
+                    </div>
+                    <div class="text-xs bg-slate-950 border border-slate-800 px-3 py-1.5 rounded-xl text-slate-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-trophy text-amber-400"></i>
+                        <span>Jumlah Penerima Paparan: <strong id="visible-count" class="text-amber-400">0</strong></span>
+                    </div>
+                </div>
+
+                <!-- Category Filters & Search Bar -->
+                <div class="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="window.filterCategory('ALL')" id="btn-cat-ALL" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500 text-slate-950 transition">Semua</button>
+                        <button onclick="window.filterCategory('MAPenS')" id="btn-cat-MAPenS" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">MAPenS</button>
+                        <button onclick="window.filterCategory('APC')" id="btn-cat-APC" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">APC</button>
+                        <button onclick="window.filterCategory('MEKAR')" id="btn-cat-MEKAR" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">MEKAR</button>
+                        <button onclick="window.filterCategory('MAKMUR')" id="btn-cat-MAKMUR" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">MAKMUR</button>
+                    </div>
+
+                    <div class="relative flex-1 md:max-w-xs">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                        <input type="text" id="search-award" oninput="window.renderAwards()" placeholder="Cari anugerah / penerima..." class="w-full bg-slate-950 border border-slate-800 text-xs rounded-xl pl-9 pr-4 py-2.5 focus:outline-none focus:border-amber-500">
+                    </div>
+                </div>
+
+                <!-- Award Cards Grid -->
+                <div id="awards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Dynamic Award Cards -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Recipient List Pop-up Modal -->
+    <div id="recipient-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-amber-500/30 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl">
+            <!-- Modal Header -->
+            <div class="p-5 border-b border-slate-800 flex justify-between items-start">
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span id="modal-category-badge" class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30">MAPenS</span>
+                        <span id="modal-recipient-count" class="text-xs text-slate-400">0 Penerima</span>
+                    </div>
+                    <h3 id="modal-award-title" class="text-lg font-bold text-amber-400 font-serif mt-1">Nama Anugerah</h3>
+                </div>
+                <button onclick="window.closeModal()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Search Input -->
+            <div class="p-4 border-b border-slate-800/60 bg-slate-950/50">
+                <input type="text" id="modal-search" oninput="window.filterModalRecipients()" placeholder="Cari nama penerima / sekolah dalam anugerah ini..." class="w-full bg-slate-900 border border-slate-800 text-xs rounded-xl px-4 py-2.5 text-slate-200 focus:outline-none focus:border-amber-500">
+            </div>
+
+            <!-- Modal Body Recipient List -->
+            <div id="modal-recipient-list" class="p-5 overflow-y-auto space-y-2 flex-1">
+                <!-- Recipient items inserted dynamically -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-slate-800 bg-slate-950/80 flex justify-between items-center text-xs text-slate-400">
+                <span>Diambil dari Rekod Rasmi MAHKOTA 2025/2026</span>
+                <button onclick="window.closeModal()" class="px-4 py-2 bg-amber-500 text-slate-950 font-bold rounded-xl hover:bg-amber-400 transition">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Logic & Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCnUJ2wLn3z6xz9tZeI4O8MDHMdAkVGnp0",
+            authDomain: "read-fc24f.firebaseapp.com",
+            projectId: "read-fc24f",
+            storageBucket: "read-fc24f.firebasestorage.app",
+            messagingSenderId: "1093266512800",
+            appId: "1:1093266512800:web:10196d7d0121f7a23ca2c5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Safe Firebase Auth Initialization
+        async function initAuth() {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    try {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } catch (tokenErr) {
+                        await signInAnonymously(auth);
+                    }
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (err) {
+                console.warn("Auth fallback mode active:", err);
+            }
+        }
+        initAuth();
+
+        // AUTOMATIC LOGO BACKGROUND REMOVAL (CANVAS-BASED CHROMA KEY)
+        function autoRemoveLogoBackground(imgElement) {
+            if (!imgElement) return;
+            const img = new Image();
+            img.crossOrigin = "Anonymous";
+            img.onload = function() {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = img.naturalWidth || img.width;
+                    canvas.height = img.naturalHeight || img.height;
+                    ctx.drawImage(img, 0, 0);
+
+                    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    const data = imgData.data;
+
+                    // Iterate over pixels to remove white/light-grey/checkered background
+                    for (let i = 0; i < data.length; i += 4) {
+                        const r = data[i];
+                        const g = data[i + 1];
+                        const b = data[i + 2];
+                        
+                        const max = Math.max(r, g, b);
+                        const min = Math.min(r, g, b);
+                        const diff = max - min;
+
+                        if ((max > 170 && diff < 30) || (r > 200 && g > 200 && b > 200)) {
+                            data[i + 3] = 0; // Alpha transparent
+                        }
+                    }
+
+                    ctx.putImageData(imgData, 0, 0);
+                    imgElement.src = canvas.toDataURL('image/png');
+                } catch(e) {
+                    console.warn("Auto background removal skipped:", e);
+                }
+            };
+            img.src = imgElement.src;
+        }
+
+        // Master Data: AJK Pelaksana Teams
+        const ajkPelaksanaList = [
+            { name: "Jawatankuasa Anugerah", members: ["Encik Jenuil Makinda Boginda", "Encik Vincent Sabin", "Encik Sandy Kariki@Gerald", "Encik Junaidi bin Yunus", "Puan Prescilia binti Deukin"] },
+            { name: "Floor Manager / Protokol", members: ["Encik Noonja bin Keh (K)", "Dr. Losius Goliong", "Encik Moktar Maulah"] },
+            { name: "Label & Tag", members: ["Puan Wilda Watis (K)", "Puan Fadillah Wanda binti Hammin", "Puan Nurul Ezzati binti Yosilin", "Encik Mohd Adzryzam bin Yakin", "Cik Vionne Tisun", "Cik Naz Nabilah Hanum", "Encik Jainison Gumat", "Encik Irfan Hafiz"] },
+            { name: "Stage Manager", members: ["Encik Nazarius G. Yulip (K)", "Encik Linus Madies"] },
+            { name: "LO Perasmi & PPD", members: ["Encik Ahsly bin Kasin (Perasmi)", "Cik Sabrina Sitim (PPD)"] },
+            { name: "Juruacara", members: ["Encik Asman bin Saman (K)", "Puan Nelly Paulus", "Encik Adzrul bin Jain", "Floren Jaini"] },
+            { name: "Bacaan Doa & Ikrar", members: ["Ustaz Suhailin Lajimin (K)", "Ustaz Azron bin Jaafar", "Encik Vincent Sabin @ William (Ikrar)"] },
+            { name: "PA Sistem / LED / Walkie Talkie", members: ["Encik Eddy Iskandar Ajmain (K)", "Encik Jaminus Agang", "Cik Cheryl Leonna Lontow", "Encik Irfan Hafiz Bin Abd Latiff"] },
+            { name: "Penyedia & Pengurus Hadiah / Sijil", members: ["Cik Alice binti Aban (K)", "Puan Adrina Maradan", "Puan Nony Porodtong", "Puan Asniza Sairin", "Puan Salbiah Miki", "Cik Dorinna Florence Laimin", "Puan Irna Binti Jibing", "Puan Norhayati Nain"] },
+            { name: "Buku Atur cara", members: ["Puan Shellsia Yap (K)", "Puan Sylvia binti Matijan", "Cik Siti Salihah binti Daimin"] },
+            { name: "Gimik & Montaj", members: ["Cik Siti Salihah binti Daimin (K)", "Encik Dzebie Gusitin", "Encik Ahmad Danish", "Encik Jefery bin Undang"] }
+        ];
+
+        const allRanauPrimarySchools = [
+            "SJK(C) Pai Wen", "SK Badukan", "SK Bongkud", "SK Bundu Tuhan", "SRK Don Bosco", "SK Gana-Gana", "SK Gusi", "SK Kaingaran", "SK Kampong Libang", "SK Kananapon", "SK Kandawayon", "SK Karagasan", "SK Kauluing", "SK Kawiyan Sugut", "SK Kemburongoh", "SK Kepangian", "SK Keranaan", "SK Kilimu", "SK Kimondou", "SK Kinapulidan", "SK Kinasaraban", "SK Kinirasan", "SK Kirokot", "SK Kituntul", "SK Kundasang", "SK Langsat", "SK Lipasu", "SK Lohan", "SK Longut", "SK Malinsau", "SK Mangkapoh", "SK Marakau", "SK Matupang", "SK Maukab", "SK Mesilou", "SK Miruru", "SK Mohimboyon", "SK Nalapak", "SK Nampasan", "SK Napong", "SK Narawang", "SK Nukakatan", "SK Nunuk Ragang", "SK Paginatan", "SK Pahu Himbaan", "SK Paus", "SK Pekan", "SK Pekan Dua", "SK Perancangan", "SK Pinausok", "SK Pinawantai", "SK Poring", "SK Randagong", "SK Ratau", "SK Sagiban", "SK Sagindai", "SK Sri Gabungan", "SK St Benedict", "SK Tagudon Lama", "SK Tampios", "SK Tarawas", "SK Tiang", "SK Tibabar K9", "SK Timbua", "SK Tinanom", "SK Toboh", "SK Togop Darat", "SK Tudan", "SK Tungou", "SK Waang"
+        ];
+
+        const allRanauSecondarySchools = [
+            "SMA Al-Irsyadiah", "SMKA Mohamad Ali", "SMK Bundu Tuhan", "SMK Kemburongoh", "SMK Kundasang", "SMK Lohan", "SMK Mat Salleh", "SMK Matupang Jaya", "SMK Ranau", "SMK Timbua", "SMK Ulu Sugut"
+        ];
+
+        // Master Data: All Awards and Complete Detailed Recipient Listings (Strictly adhering to official document)
+        const awardsData = [
+            // MAPenS
+            { category: "MAPenS", title: "Tokoh Guru", recipients: [{ title: "Dr.", name: "LINA BAGU", school: "INSTITUSI LUAR" }] },
+            { category: "MAPenS", title: "Tokoh Kepimpinan Pendidikan", recipients: [{ title: "Encik", name: "MOZAINIE YUKIN @ MARUSIT", school: "INSTITUSI LUAR" }] },
+            { category: "MAPenS", title: "Anugerah Khas PPD Ranau: Tokoh Kepimpinan Pegawai", recipients: [
+                { title: "Encik", name: "ASMAN SAMAN", school: "PPD RANAU" },
+                { title: "Cik", name: "CHERYL LEONNA LONTOW", school: "PPD RANAU" },
+                { title: "Encik", name: "LADIUS MACHI", school: "PPD RANAU" },
+                { title: "Puan", name: "LISAH BINTI KILAU @ HAMRIE", school: "PPD RANAU" },
+                { title: "Encik", name: "MAAHRIF MOHAMAD", school: "PPD RANAU" },
+                { title: "Encik", name: "MOHD AZNAN BIN NAUTH", school: "PPD RANAU" },
+                { title: "Puan", name: "NELLY PAULUS", school: "PPD RANAU" },
+                { title: "Encik", name: "NOONJA BIN KI @ NOONJA BIN KEH", school: "PPD RANAU" },
+                { title: "Puan", name: "ROSIE SINTEH", school: "PPD RANAU" },
+                { title: "Encik", name: "SABIN SINUSUN", school: "PPD RANAU" },
+                { title: "Encik", name: "SAFLEH SAPIN", school: "PPD RANAU" }
+            ]},
+            { category: "MAPenS", title: "Tokoh Kepimpinan (Rendah & Menengah)", recipients: [
+                { title: "Encik", name: "TSEN TING FENG", school: "SJK(C) PAI WEN (Rendah)" },
+                { title: "Puan", name: "ZURAIDAH BINTI HAMDIN", school: "SMA AL IRSYADIAH (Menengah)" }
+            ]},
+            { category: "MAPenS", title: "Guru Ikon", recipients: [
+                { title: "Puan", name: "AZYAN JOUNIS", school: "SRK DON BOSCO (Guru Muda Berpotensi)" },
+                { title: "Encik", name: "KEVIN SURESH A/L GANAKURU", school: "SK GANA-GANA (Guru Kokurikulum)" },
+                { title: "Puan", name: "MARIAM BINTI MANCHA", school: "SK SAGINDAI (Guru TVET SR)" },
+                { title: "Encik", name: "RICHARD @ ABD HANIF ENGGAM ABDULLAH", school: "SMK LOHAN (Guru TVET SM)" },
+                { title: "Puan", name: "EDZLYN LADUNI", school: "SK TIMBUA (Guru STEM SR)" },
+                { title: "Puan", name: "MALININ ANGGONG", school: "SMK ULU SUGUT (Guru STEM SM)" },
+                { title: "Encik", name: "JASLI HJ MIAN", school: "SMK LOHAN (Guru Sukan)" },
+                { title: "Encik", name: "RAMDY JAIMIS", school: "SMK MAT SALLEH (Guru Seni Persembahan)" },
+                { title: "Encik", name: "ASLISON GILI", school: "SMK TIMBUA (Guru Bimbingan dan Kaunseling)" }
+            ]},
+            { category: "MAPenS", title: "Guru Berwibawa", recipients: [
+                { title: "Encik", name: "HAMDAN @ MOHD HAMDAN BIN TAIP", school: "SK RATAU (Guru Cemerlang OKU Berwibawa)" },
+                { title: "Encik", name: "ALBERT ULANA", school: "SK MANGKAPOH (Guru Hebat Bahasa)" },
+                { title: "Puan", name: "SITI AZRINA BINTI SAIRIN", school: "SK MATUPANG (Guru Pendidikan Khas Berwibawa SR)" },
+                { title: "Puan", name: "NINA DEWI BINTI SHAMSUDDIN", school: "SMK MATUPANG JAYA (Guru Pendidikan Khas Berwibawa SM)" },
+                { title: "Puan", name: "ANIS IRFANI BINTI ROSLI", school: "TADIKA CURAHAN KASIH (Guru Sekolah/Tadika Swasta)" }
+            ]},
+            { category: "MAPenS", title: "Guru Inovatif", recipients: [
+                { title: "Puan", name: "LESLY MAJANA", school: "SK PORING (Individu Prasekolah KPM)" },
+                { title: "Puan", name: "LENNY LORINA RAIMON", school: "SK RATAU (Individu Sekolah Rendah)" },
+                { title: "Puan", name: "KAREN MAH SHU KYUN @ FARAH DAMIA ABDULLAH", school: "SMK MAT SALLEH (Individu Sekolah Menengah)" },
+                { title: "Puan", name: "NAJAA ALIAH BINTI JUPILIN", school: "TADIKA ALAM CERIA (Individu Prasekolah Swasta)" },
+                { title: "Kumpulan", name: "KUMPULAN RUDAI", school: "SK KAMPONG LIBANG (Kumpulan Prasekolah - Menengah)" }
+            ]},
+            { category: "MAPenS", title: "Khas Pendidikan & Focal Person", recipients: [
+                { title: "Puan", name: "JOANESEH JAMES GHANI", school: "PIBG (Focal Person)" },
+                { title: "Encik", name: "DAHIM BIN REMAN", school: "SK MALINSAU (Guru Gigih Pedalaman)" },
+                { title: "Encik", name: "ANIS IZZUDDIN BIN HAZELLAH @ BAHARI", school: "SK TIBABAR K9 (Digital Content Creator)" },
+                { title: "Puan", name: "ERNIE JAIN", school: "SMK TIMBUA (Digital Content Creator)" }
+            ]},
+
+            // APC
+            { category: "APC", title: "Anugerah Perkhidmatan Cemerlang (APC 2025)", recipients: [
+                { title: "Encik", name: "NOONJA BIN KI @ NOONJA BIN KEH", school: "PPD RANAU" },
+                { title: "Puan", name: "ARNIWANA BINTI AJIMIN", school: "PPD RANAU" },
+                { title: "Encik", name: "SERIRAMA BIN EBBIE", school: "PPD RANAU" },
+                { title: "Encik", name: "SAFLEH BIN SAPIN", school: "PPD RANAU" },
+                { title: "Puan", name: "RAPEDAH BINTI HASSAN", school: "PPD RANAU" },
+                { title: "Encik", name: "ADZRUL JAIN", school: "PTIS RANAU" },
+                { title: "Puan", name: "LEONNA DAIL", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "Ustaz", name: "MUHAMAD AZIDI BIN BAKAR", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "Cik", name: "NURUL ASMAH BINTI MAHMMUD", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "Encik", name: "SAPRAN BIN OSMAN", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "Encik", name: "ISMAIL BIN JUSOH", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "Puan", name: "FLORIDAH @ FREDERICA BINTI DIRIN", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "Encik", name: "TOIMING BIN TOMPULING", school: "SMK BUNDU TUHAN" },
+                { title: "Puan", name: "NUR HIDAYU ADZUM BINTI JAMIL", school: "SMK BUNDU TUHAN" },
+                { title: "Encik", name: "JUARRIE MUSIN", school: "SMK BUNDU TUHAN" },
+                { title: "Encik", name: "RAFFDY BIN JAIP", school: "SMK BUNDU TUHAN" },
+                { title: "Puan", name: "CYNTHIA GEORGE", school: "SMK KEMBURONGOH" },
+                { title: "Puan", name: "RESTIPAH BINTI SAIDI", school: "SMK KEMBURONGOH" },
+                { title: "Puan", name: "LOURINAH BINTI LAKINSON @ LAKISON", school: "SMK KEMBURONGOH" },
+                { title: "Puan", name: "NORIZAN BINTI HJ. ADAM", school: "SMK KUNDASANG" },
+                { title: "Puan", name: "JECKLIN ISHAK", school: "SMK KUNDASANG" },
+                { title: "Puan", name: "SURIYATI BINTI BARANTIS @ JASLI", school: "SMK KUNDASANG" },
+                { title: "Puan", name: "SITI KAMARIAH BINTI LUSIN", school: "SMK KUNDASANG" },
+                { title: "Encik", name: "ROHININ @ ABDUL MALIK BIN SHAPI", school: "SMK KUNDASANG" },
+                { title: "Encik", name: "JIFFRINE BIN R. JUSTINE", school: "SMK KUNDASANG" },
+                { title: "Puan", name: "YATISAH DUSAIN", school: "SMK KUNDASANG" },
+                { title: "Puan", name: "SUZANNA BINTI SABIRIN", school: "SMK LOHAN" },
+                { title: "Puan", name: "MISAH ADIS", school: "SMK LOHAN" },
+                { title: "Encik", name: "RONNY BIN DUKI @ ROSHDY BIN AHMAD MARZUKI", school: "SMK LOHAN" },
+                { title: "Puan", name: "KAFSAH ABIDIN", school: "SMK LOHAN" },
+                { title: "Encik", name: "RUSLANI BIN ARIFFIN", school: "SMK LOHAN" },
+                { title: "Puan", name: "SOJIDAH WATI OTHMAN", school: "SMK LOHAN" },
+                { title: "Puan", name: "PATIMAH BINTI AWANG KANAK", school: "SMK LOHAN" },
+                { title: "Encik", name: "EYOSS NAING", school: "SMK LOHAN" },
+                { title: "Puan", name: "ASLINDA BT JUWAIT", school: "SMK LOHAN" },
+                { title: "Encik", name: "MOHD. KHAIRY BIN MD. YUSOF", school: "SMK MAT SALLEH" },
+                { title: "Puan", name: "BAITA BINTI GADANA", school: "SMK MAT SALLEH" },
+                { title: "Encik", name: "WALTER ABEL ADIH", school: "SMK MAT SALLEH" },
+                { title: "Encik", name: "PREMMIER TAIN BIN TAIN", school: "SMK MAT SALLEH" },
+                { title: "Puan", name: "NOORIDAH BINTI SABLEE", school: "SMK MAT SALLEH" },
+                { title: "Encik", name: "WATSIMIN BIN SULAIMAN @ WASIMIN", school: "SMK MAT SALLEH" },
+                { title: "Cik", name: "EMALIANA BINTI GAKOU @ NURAMALINA SALLEH", school: "SMK MAT SALLEH" },
+                { title: "Puan", name: "ESMA BINTI FAUZI", school: "SMK MAT SALLEH" },
+                { title: "Encik", name: "MOHD. REDZLAN BIN MOHAMMAD", school: "SMK MAT SALLEH" },
+                { title: "Puan", name: "RAINEH @ RAYNE BINTI BUIK", school: "SMK MAT SALLEH" },
+                { title: "Puan", name: "KASMAH BINTI MUSIN", school: "SMK MAT SALLEH" },
+                { title: "Puan", name: "ROSEWATI BINTI ROSLAN", school: "SMK MAT SALLEH" },
+                { title: "Puan", name: "PRISCILLA AMBROSE", school: "SMK MAT SALLEH" },
+                { title: "Puan", name: "SITIANEH KONOLIS", school: "SMK MATUPANG JAYA" },
+                { title: "Cik", name: "HAMRIANI KARADING", school: "SMK MATUPANG JAYA" },
+                { title: "Encik", name: "REMENZER DAIMUN", school: "SMK MATUPANG JAYA" },
+                { title: "Encik", name: "SANUSI MOHD HAMZAH", school: "SMK MATUPANG JAYA" },
+                { title: "Encik", name: "BONNIE @ JOHN THARCISIUS", school: "SMK MATUPANG JAYA" },
+                { title: "Cik", name: "FIDELIA BIDI", school: "SMK RANAU" },
+                { title: "Encik", name: "SHAFRI KHAN @ROY BIN JABAR KHAN", school: "SMK RANAU" },
+                { title: "Puan", name: "RUJIAH @ RUSINEH BINTI DIAMIN", school: "SMK RANAU" },
+                { title: "Cik", name: "JULIAH @ JOSSI BINTI SEPIKIT", school: "SMK RANAU" },
+                { title: "Puan", name: "ELSIE GABRIEL GUAKIN", school: "SMK RANAU" },
+                { title: "Puan", name: "SITTI RUSITA BINTI MOHD SAIDI @ SAIKI", school: "SMK TIMBUA" },
+                { title: "Puan", name: "NOR HAMIZAH BINTI RUSIAN", school: "SMK TIMBUA" },
+                { title: "Cik", name: "NORHARNIZA BINTI IKIN @ MOSLIN", school: "SMK TIMBUA" },
+                { title: "Encik", name: "ABRAHAM Z. ILYAS", school: "SMK TIMBUA" },
+                { title: "Puan", name: "LILY MUJIN", school: "SMK ULU SUGUT" },
+                { title: "Cik", name: "NUR ILYANI BINTI RAHMAT @ SULAIMAN", school: "SMK ULU SUGUT" },
+                { title: "Puan", name: "ROZELIA JOSEPH SANGAU", school: "SMK ULU SUGUT" },
+                { title: "Puan", name: "ASRINA KAMPISANG", school: "SMK ULU SUGUT" },
+                { title: "Encik", name: "ADZMI BIN TINUS @ BOY", school: "SMK ULU SUGUT" },
+                { title: "Puan", name: "NURUL JANNAH BINTI SAHININ", school: "SMA AL-IRSYADIAH" },
+                { title: "Encik", name: "RUZAINI BIN ROSLI", school: "SMA AL-IRSYADIAH" },
+                { title: "Puan", name: "OOI CHIA CHIA", school: "SJK (C) PAI WEN" },
+                { title: "Cik", name: "CHONG YEE NYUK", school: "SJK (C) PAI WEN" },
+                { title: "Puan", name: "NORLIAH BINTI MOLINKA", school: "SK BADUKAN" },
+                { title: "Encik", name: "JALANIS BIN YUSOP", school: "SK BONGKUD" },
+                { title: "Puan", name: "VELLORINY NAIS", school: "SK BONGKUD" },
+                { title: "Puan", name: "HANIWATI MOEN", school: "SK BUNDU TUHAN" },
+                { title: "Puan", name: "JUPITA @ NONONG DUSIN", school: "SK BUNDU TUHAN" },
+                { title: "Puan", name: "JULIAH BINTI GHANI", school: "SRK DON BOSCO" },
+                { title: "Encik", name: "FREDOLIN LAZARUS", school: "SK GANA-GANA" },
+                { title: "Encik", name: "MOHD SHAHROL KAMAL BIN ZAINOL ABIDIN", school: "SK GUSI" },
+                { title: "Puan", name: "NORHAFIZATON SOLEHAH BINTI AYUB", school: "SK KAINGARAN" },
+                { title: "Encik", name: "HISHAM BIN NASIRI", school: "SK KAINGARAN" },
+                { title: "Puan", name: "NOORHANIM BINTI ABDUL RAHMAN", school: "SK KAMPONG LIBANG" },
+                { title: "Puan", name: "ALLYSIAH UKON", school: "SK KAMPONG LIBANG" },
+                { title: "Puan", name: "MASRINAH BINTI MIRIN", school: "SK KANANAPON" },
+                { title: "Puan", name: "SALVIA DUMAT", school: "SK KANDAWAYON" },
+                { title: "Puan", name: "MARSAILA AH CHONG", school: "SK KANDAWAYON" },
+                { title: "Puan", name: "SITI NORLINAH BINTI JAUDI", school: "SK KARAGASAN" },
+                { title: "Puan", name: "SITI ROSLINEH BINTI SAILIN", school: "SK KARAGASAN" },
+                { title: "Encik", name: "WELTON BALANTING", school: "SK KAULUAN" },
+                { title: "Encik", name: "RACHAEL TAWANG MALUDA", school: "SK KAULUAN" },
+                { title: "Encik", name: "RODNEY JOHN", school: "SK KAWIYAN SUGUT" },
+                { title: "Puan", name: "FLORANCE BINTI SUAH", school: "SK KAWIYAN SUGUT" },
+                { title: "Encik", name: "RESDAM SATUMIN", school: "SK KAWIYAN SUGUT" },
+                { title: "Puan", name: "KAJIAH GUSILI", school: "SK KEMBURONGOH" },
+                { title: "Puan", name: "KHAIRUNISA BINTI KAISING", school: "SK KEMBURONGOH" },
+                { title: "Puan", name: "HASIAH @ HARNIANI BIGUL", school: "SK KEPANGIAN" },
+                { title: "Puan", name: "AMNAH MAISIN", school: "SK KERANAAN" },
+                { title: "Ustazah", name: "ZURAINIH@ZURAINEH BINTI JUKILIN", school: "SK KILIMU" },
+                { title: "Puan", name: "DESICA LEE SIEW CHEN", school: "SK KILIMU" },
+                { title: "Encik", name: "FAZIL BIN MARUJAL", school: "SK KILIMU" },
+                { title: "Puan", name: "WATI BINTI RUBIN", school: "SK KILIMU" },
+                { title: "Puan", name: "ARTINE BINTI MODI", school: "SK KIMONDOU" },
+                { title: "Puan", name: "NOOR HANNY P.N BINTI MUDJIJAT MO", school: "SK KIMONDOU" },
+                { title: "Puan", name: "NANCY @ NOORKAMISAH BINTI YUNIK", school: "SK KINAPULIDAN" },
+                { title: "Puan", name: "ISMAHWATI BINTI NASIRIN", school: "SK KINAPULIDAN" },
+                { title: "Puan", name: "RAPINEH @ROSNEH BINTI SABIN", school: "SK KINASARABAN" },
+                { title: "Encik", name: "PETURUS SOMIDIN", school: "SK KINIRASAN" },
+                { title: "Encik", name: "MOHAMMAD NIEZAM SARININ", school: "SK KIROKOT" },
+                { title: "Puan", name: "HASRINAH BINTI SANIN", school: "SK KITUNTUL" },
+                { title: "Encik", name: "MOHD ALSAH RIZAN BIN MANSOR", school: "SK KUNDASANG" },
+                { title: "Puan", name: "PHILIPPA@ PETRONELLA EGING", school: "SK KUNDASANG" },
+                { title: "Ustazah", name: "HAMIDAH BINTI SILUN", school: "SK KUNDASANG" },
+                { title: "Ustazah", name: "BASIRAH BINTI HASSIM", school: "SK KUNDASANG" },
+                { title: "Puan", name: "HAMRIA BINTI HAMDAN", school: "SK LANGSAT" },
+                { title: "Puan", name: "NUR AINI BTE NANANG", school: "SK LIPASU" },
+                { title: "Encik", name: "PANANDIS JUSTIN", school: "SK LIPASU" },
+                { title: "Encik", name: "EDMOND LADUNI", school: "SK LOHAN" },
+                { title: "Puan", name: "ALIPAH BT.YAAKUB@NOORAZIAH BT.YAKUP", school: "SK LOHAN" },
+                { title: "Puan", name: "SITI SHAFAWATI BINTI HAMKA DOL", school: "SK LOHAN" },
+                { title: "Puan", name: "NURIDEH KAUWASA", school: "SK LOHAN" },
+                { title: "Encik", name: "SAHIDIN BIN YUSOF", school: "SK LONGUT" },
+                { title: "Encik", name: "FRANCIS JESSIUS", school: "SK MALINSAU" },
+                { title: "Puan", name: "JUSMARY SAMUN", school: "SK MALINSAU" },
+                { title: "Encik", name: "HELDI SUFFHAN BIN SUFFIAN", school: "SK MANGKAPOH" },
+                { title: "Encik", name: "RANDDY PETER DURUNSUK", school: "SK MARAKAU" },
+                { title: "Puan", name: "HIOM BINTI MIRIN", school: "SK MARAKAU" },
+                { title: "Puan", name: "SURAINIE BINTI ZULKIFLI", school: "SK MATUPANG" },
+                { title: "Puan", name: "VERONICA NAMIN", school: "SK MATUPANG" },
+                { title: "Encik", name: "RAHIDI@ABD.RASYID BIN PONGOT@RUSIMAN", school: "SK MATUPANG" },
+                { title: "Puan", name: "ZUKLERAH BINTI CELESTINE", school: "SK MAUKAB" },
+                { title: "Puan", name: "SHIRLEY DUSIP", school: "SK MAUKAB" },
+                { title: "Puan", name: "REJIAH JAMILI", school: "SK MESILOU" },
+                { title: "Encik", name: "KEVIN SURESH A/L GANAKURU", school: "SK MIRURU" },
+                { title: "Puan", name: "JAHINEH @ JULAIDAH BINTI DAIMIN", school: "SK MOHIMBOYON" },
+                { title: "Encik", name: "AFFENDAY BIN LASIMAN", school: "SK NALAPAK" },
+                { title: "Ustazah", name: "NUR FARHAH BINTI MOHD YUSOFF", school: "SK NALAPAK" },
+                { title: "Puan", name: "DAISY BINTI BERMAN", school: "SK NAMPASAN" },
+                { title: "Puan", name: "JUHILIN @ FAIZAH GULAHAI", school: "SK NAPONG" },
+                { title: "Encik", name: "SYAMSIR BIN MOKTAR", school: "SK NARADAN" },
+                { title: "Puan", name: "CELICE BINTI GONDILI", school: "SK NARAWANG" },
+                { title: "Ustaz", name: "MUHAMMAD MUSLIM BIN SUHAIMI", school: "SK NUKAKATAN" },
+                { title: "Puan", name: "RUSINAH GIMBAH", school: "SK NUNUK RAGANG" },
+                { title: "Puan", name: "SYLVIA ABEL", school: "SK PAGINATAN" },
+                { title: "Puan", name: "MASRINIH BINTI MAHALI", school: "SK PAHU HIMBAAN" },
+                { title: "Encik", name: "DAVID DALTON DEMINIS", school: "SK PAUS" },
+                { title: "Cik", name: "NUR RAHIMATUL ADZLINA BINTI MOHD SALLEH", school: "SK PEKAN DUA" },
+                { title: "Puan", name: "SITI SYUHADAH BINTI GAHAMAT", school: "SK PEKAN DUA" },
+                { title: "Puan", name: "NURUL FATHIN BINTI IBRAHIM", school: "SK PEKAN DUA" },
+                { title: "Puan", name: "ROSNITA BINTI SAIR", school: "SK PEKAN DUA" },
+                { title: "Puan", name: "ROSNANIE @ ROSMARRY BT LASIKI", school: "SK PEKAN" },
+                { title: "Encik", name: "RAMDI KARMIN", school: "SK PEKAN" },
+                { title: "Puan", name: "SUIMING @SUZAN BINTI KIU", school: "SK PEKAN" },
+                { title: "Encik", name: "MOHD.ZULKARNAIN BIN HAJI BAJOORI", school: "SK PERANCANGAN" },
+                { title: "Puan", name: "JAILIN SITI BAIZURAH BINTI JASLI", school: "SK PINAUSUK" },
+                { title: "Encik", name: "HIEW YUN CHOI @ FRIDDY FERNADO", school: "SK PINAWANTAI" },
+                { title: "Encik", name: "ZAABA BIN ABDUL GHANI", school: "SK PORING" },
+                { title: "Encik", name: "RATININ @ AMININ BIN JALANI", school: "SK RANDAGONG" },
+                { title: "Puan", name: "LENNY LORINA RAIMON", school: "SK RATAU" },
+                { title: "Encik", name: "ALBINUS JAIMES", school: "SK SAGIBAN" },
+                { title: "Puan", name: "LILY BTE KEINSINGIN", school: "SK SAGINDAI" },
+                { title: "Encik", name: "MASRIN MURIN", school: "SK SRI GABUNGAN" },
+                { title: "Encik", name: "MOHD SYAFIQ SHOLEHAN BIN ABD KARIM", school: "SK ST BENEDICT" },
+                { title: "Encik", name: "JUNIS BIN DENION", school: "SK ST BENEDICT" },
+                { title: "Encik", name: "SAJIRIN SAHAMIN", school: "SK TAGUDON LAMA" },
+                { title: "Encik", name: "BASMIN BIN KORAMAU", school: "SK TAMPIOS" },
+                { title: "Puan", name: "SYLVIA CHRISTOPHER", school: "SK TARAWAS" },
+                { title: "Encik", name: "WASILIN BIN WASLI", school: "SK TIANG" },
+                { title: "Puan", name: "MASINA@MASINAH BINTI PARIDI", school: "SK TIBABAR K9" },
+                { title: "Puan", name: "ROSNEH BINTI SUAMIN", school: "SK TIBABAR K9" },
+                { title: "Puan", name: "MIAH NGINGILON", school: "SK TIBABAR K9" },
+                { title: "Puan", name: "ROSHIDA SALLEHUDDIN", school: "SK TIMBUA" },
+                { title: "Cik", name: "NORAZELA ADZLYN BINTI JALEMENT", school: "SK TIMBUA" },
+                { title: "Ustazah", name: "NUR HANANI BINTI IDRIS", school: "SK TIMBUA" },
+                { title: "Puan", name: "MAZNIE BINTI SANIN", school: "SK TIMBUA" },
+                { title: "Encik", name: "HASNALIZAN BIN ALIAS", school: "SK TINANOM" },
+                { title: "Encik", name: "MUHAMMAD AZIRUL BIN JUMSIN", school: "SK TOBOH" },
+                { title: "Encik", name: "MOHD. FADZIL BIN POLINUH", school: "SK TOGOP DARAT" },
+                { title: "Puan", name: "SITI MILIA@EMMY BINTI GIAK", school: "SK TUNGOU" },
+                { title: "Encik", name: "MOHD EFFENDEE BIN IBRAHIM", school: "SK TUNGOU" },
+                { title: "Encik", name: "ZULHILME BIN MOHAMAD", school: "SK TUDAN" },
+                { title: "Encik", name: "HARRY BIN GOPOG", school: "SK WAANG" }
+            ]},
+
+            // MEKAR
+            { 
+                category: "MEKAR", 
+                title: "Anugerah MEKAR Utama (Sekolah Menengah)", 
+                recipients: [{ title: "Sekolah Menengah", name: "SMA AL IRSYADIAH", school: "Pencapaian Terbaik SPM / STPM / PBD" }] 
+            },
+            { 
+                category: "MEKAR", 
+                title: "Pencapaian SPM 2025 Cemerlang & Lonjakan GPS", 
+                recipients: [
+                    { title: "GPS Cemerlang <150 Calon", name: "SMA AL IRSYADIAH", school: "Pencapaian GPS Cemerlang SPM" },
+                    { title: "Lonjakan GPS <150 Calon", name: "SMA AL IRSYADIAH", school: "Lonjakan GPS Cemerlang SPM" },
+                    { title: "100% LMS", name: "SMA AL IRSYADIAH", school: "Lulus 100% Semua Mata Pelajaran" },
+                    { title: "TOPAZ 5 Tahun", name: "SMA AL IRSYADIAH", school: "100% LMS 5 Tahun Berturut-turut" },
+                    { title: "GPS Cemerlang 151-250 Calon", name: "SMK RANAU", school: "Pencapaian GPS Cemerlang SPM" },
+                    { title: "Lonjakan GPS 151-250 Calon", name: "SMK RANAU", school: "Lonjakan GPS Cemerlang SPM" },
+                    { title: "GPS Cemerlang >251 Calon", name: "SMK MAT SALLEH", school: "Pencapaian GPS Cemerlang SPM" },
+                    { title: "Lonjakan GPS >251 Calon", name: "SMK MAT SALLEH", school: "Lonjakan GPS Cemerlang SPM" },
+                    { title: "100% LMS", name: "SMK AGAMA MOHAMAD ALI", school: "Lulus 100% Semua Mata Pelajaran" },
+                    { title: "100% LMS", name: "SMK TIMBUA", school: "Lulus 100% Semua Mata Pelajaran" }
+                ] 
+            },
+            { 
+                category: "MEKAR", 
+                title: "Pencapaian STPM 2025 Cemerlang & BERLIAN", 
+                recipients: [
+                    { title: "STPM BERLIAN 6 Tahun", name: "SMK AGAMA MOHAMAD ALI", school: "Lulus 100% STPM 6 Tahun Berturut-turut" },
+                    { title: "Sekolah Lulus 100%", name: "SMK AGAMA MOHAMAD ALI", school: "Lulus 100% STPM" },
+                    { title: "PNGK Cemerlang <50 Calon", name: "SMK AGAMA MOHAMAD ALI", school: "PNGK Cemerlang STPM" },
+                    { title: "PNGK Cemerlang 51-100 Calon", name: "SMK KUNDASANG", school: "PNGK Cemerlang STPM" },
+                    { title: "PNGK Cemerlang >101 Calon", name: "SMK MAT SALLEH", school: "PNGK Cemerlang STPM" }
+                ] 
+            },
+            { 
+                category: "MEKAR", 
+                title: "Pencapaian PBD Cemerlang 2025 (SR & SM)", 
+                recipients: [
+                    ...allRanauPrimarySchools.map(sch => ({ title: "Sekolah Rendah", name: sch, school: "PBD Cemerlang SR (Gred A/B/SKM)" })),
+                    ...allRanauSecondarySchools.map(sch => ({ title: "Sekolah Menengah", name: sch, school: "PBD Cemerlang SM" }))
+                ] 
+            },
+            { 
+                category: "MEKAR", 
+                title: "Anugerah Pencapaian Pemulihan Khas Cemerlang 2025", 
+                recipients: [
+                    ...[
+                        "SK Kananapon", "SK Kauluan", "SK Kepangian", "SK Keranaan", "SK Longut", "SK Maukab", "SK Nampasan", "SK Randagong", "SK Ratau", "SK Tagudon Lama", "SK Toboh", "SK Tungou"
+                    ].map(sch => ({ title: "Pemulihan Khas (100%)", name: sch, school: "Mencapai 100% Pemulihan Khas T2-T6" })),
+                    ...allRanauPrimarySchools.map(sch => ({ title: "Pemulihan Khas (KPI JPN)", name: sch, school: "Mencapai KPI JPN Tahun 6" }))
+                ] 
+            },
+            { 
+                category: "MEKAR", 
+                title: "Kebolehbacaan & Khatam Al-Quran 100% (Tahun 6)", 
+                recipients: [
+                    { title: "Khatam Al-Quran 100%", name: "SK Kinasaraban", school: "Khatam Al-Quran T6 100%" },
+                    { title: "Khatam Al-Quran 100%", name: "SK Ratau", school: "Khatam Al-Quran T6 100%" },
+                    { title: "Khatam Al-Quran 100%", name: "SK Tagudon Lama", school: "Khatam Al-Quran T6 100%" },
+                    ...[
+                        "SK Bongkud", "SK Bundu Tuhan", "SRK Don Bosco", "SK Kandawayon", "SK Kauluan", "SK Keranaan", "SK Kimondou", "SK Kinasaraban", "SK Kinirasan", "SK Kundasang", "SK Maukab", "SK Miruru", "SK Nampasan", "SK Narawang", "SK Nukakatan", "SK Nunuk Ragang", "SK Paginatan", "SK Pahu Himbaan", "SK Paus", "SK Perancangan", "SK Randagong", "SK Ratau", "SK St Benedict", "SK Tagudon Lama", "SK Tarawas", "SK Tibabar K9", "SK Tinanom", "SK Tudan", "SK Tungou", "SK Waang"
+                    ].map(sch => ({ title: "Model Al-Quran 100%", name: sch, school: "Model Al-Quran T6 100%" }))
+                ]
+            },
+            { 
+                category: "MEKAR", 
+                title: "Anugerah KBAT (Sekolah Rendah & Menengah)", 
+                recipients: [
+                    ...["SJK(C) Pai Wen", "SK Kampong Libang", "SK Kilimu", "SK Kituntul", "SK Lipasu", "SK Napong", "SK Pekan Dua", "SK Poring", "SK St Benedict", "SK Tibabar K9"].map(s => ({ title: "Sekolah Rendah", name: s, school: "Sekolah Pembudaya KBAT SR" })),
+                    ...["SMK Kundasang", "SMK Lohan", "SMK Ranau", "SMK Timbua"].map(s => ({ title: "Sekolah Menengah", name: s, school: "Sekolah Pembudaya KBAT SM" }))
+                ] 
+            },
+            { category: "MEKAR", title: "10 Murid Paling Tinggi Rekod AINS (SR & SM)", recipients: [
+                { title: "Murid", name: "AARIZ AMJAD BIN MOHAMMAD HAMZAH", school: "SJK(C) PAI WEN" },
+                { title: "Murid", name: "GADRIEL GLENNSTON CARL KUNG", school: "SJK(C) PAI WEN" },
+                { title: "Murid", name: "GADRIELLA GWENNEVIE CARLA KUNG", school: "SJK(C) PAI WEN" },
+                { title: "Murid", name: "JANE YVANNESA FREDERIC", school: "SJK(C) PAI WEN" },
+                { title: "Murid", name: "AARAHI OSIENDA HILMEY", school: "SK MESILOU" },
+                { title: "Murid", name: "ALVICKER WISLEY", school: "SK PERANCANGAN" },
+                { title: "Murid", name: "ERICMAX EIDEN ENDYFEB", school: "SRK DON BOSCO" },
+                { title: "Murid", name: "FREENY AELLY EYUMMI FREENDY", school: "SRK DON BOSCO" },
+                { title: "Murid", name: "OLIVER OSTERN FREDOLINE", school: "SRK DON BOSCO" },
+                { title: "Murid", name: "SARAH OTHILIA ROBERT", school: "SRK DON BOSCO" },
+                { title: "Murid", name: "ANNABELLE GEOFFREY", school: "SMK BUNDU TUHAN" },
+                { title: "Murid", name: "CARLA RAVENA CLARENCE", school: "SMK BUNDU TUHAN" },
+                { title: "Murid", name: "SHERNIE NICHOLE VINCENT", school: "SMK BUNDU TUHAN" },
+                { title: "Murid", name: "MOHAMAD ZAMRY BIN JUSNIN", school: "SMK KEMBURONGOH" },
+                { title: "Murid", name: "NUR FARISYA ADRIANA BINTI WASILIN", school: "SMK KEMBURONGOH" },
+                { title: "Murid", name: "DANESH ANEQ BIN YANCE", school: "SMK LOHAN" },
+                { title: "Murid", name: "CARLYNN YVONNE WARNER", school: "SMK MAT SALLEH" },
+                { title: "Murid", name: "FRENDY RITZ BERRY TALIBAN", school: "SMK MAT SALLEH" },
+                { title: "Murid", name: "HAVENLY EMVAWA ANAK BOSS", school: "SMK MAT SALLEH" },
+                { title: "Murid", name: "MUHAMMAD IMAN HAZIQ BIN MOHAMMAD HAMZAH", school: "SMK MAT SALLEH" }
+            ]},
+            { category: "MEKAR", title: "Anugerah TVET & Inovasi RBT", recipients: [
+                { title: "Puan", name: "LENNY LORINA RAIMON", school: "SK RATAU (TVET PBL RBT SR)" },
+                { title: "Encik", name: "ZULHILME BIN MOHAMAD", school: "SK TUDAN (TVET PBL RBT SR)" },
+                { title: "Puan", name: "MIYAH @ WINIE BINTI UBOK", school: "SMK LOHAN (TVET OPSSRT SM)" }
+            ]},
+            { category: "MEKAR", title: "Anugerah Pusat Sumber, HIP & DELIMa", recipients: [
+                { title: "Sekolah Rendah", name: "SK KAMPONG LIBANG", school: "Pencapaian HIP Terbaik SR" },
+                { title: "Sekolah Menengah", name: "SMK LOHAN", school: "Pencapaian HIP Terbaik SM" },
+                { title: "Sekolah Rendah", name: "SK KILIMU", school: "Pengurusan Pusat Sumber Cemerlang SR" },
+                { title: "Sekolah Menengah", name: "SMK LOHAN", school: "Pengurusan Pusat Sumber Cemerlang SM" },
+                { title: "Sekolah Rendah", name: "SK TIBABAR K9", school: "Sekolah Pengguna DELIMa Aktif SR" },
+                { title: "Sekolah Menengah", name: "SMA AL IRSYADIAH", school: "Sekolah Pengguna DELIMa Aktif SM" }
+            ]},
+
+            // MAKMUR
+            { 
+                category: "MAKMUR", 
+                title: "Sekolah Contoh Pengurusan RMT / PSS (SR)", 
+                recipients: [
+                    "SJK(C) Pai Wen", "SK Badukan", "SK Bongkud", "SK Bundu Tuhan", "SRK Don Bosco", "SK Gana-Gana", "SK Kaingaran", "SK Kampong Libang", "SK Kananapon", "SK Kandawayon", "SK Karagasan", "SK Kawiyan Sugut", "SK Kepangian", "SK Kimondou", "SK Kinapulidan", "SK Kinasaraban", "SK Kinirasan", "SK Kirokot", "SK Kituntul", "SK Kundasang", "SK Lipasu", "SK Lohan", "SK Longut", "SK Malinsau", "SK Matupang", "SK Maukab", "SK Mesilou", "SK Nalapak", "SK Nampasan", "SK Napong", "SK Narawang", "SK Nukakatan", "SK Nunuk Ragang", "SK Paginatan", "SK Pahu Himbaan", "SK Paus", "SK Pekan", "SK Pekan Dua", "SK Perancangan", "SK Pinausok", "SK Pinawantai", "SK Ratau", "SK Sagiban", "SK Sri Gabungan", "SK St Benedict", "SK Tibabar K9", "SK Togop Darat", "SK Tudan", "SRK Don Bosco"
+                ].map(sch => ({ title: "Sekolah Rendah", name: sch, school: "Pengurusan RMT / PSS Cemerlang" })) 
+            },
+            { 
+                category: "MAKMUR", 
+                title: "Kehadiran Murid Melepasi KPI 95% (SR & SM)", 
+                recipients: [
+                    "SK Badukan", "SK Bundu Tuhan", "SRK Don Bosco", "SK Gana-Gana", "SK Kaingaran", "SK Kandawayon", "SK Kauluan", "SK Keranaan", "SK Kimondou", "SK Kirokot", "SK Langsat", "SK Malinsau", "SK Mangkapoh", "SK Maukab", "SK Mesilou", "SK Miruru", "SK Mohimboyon", "SK Nukakatan", "SK Nunuk Ragang", "SK Pahu Himbaan", "SK Perancangan", "SK Pinawantai", "SK Poring", "SK Randagong", "SK Sagiban", "SK St Benedict", "SK Tagudon Lama", "SK Tampios", "SK Tibabar K9", "SK Tinanom", "SK Toboh", "SK Tudan", "SK Tungou", "SMA Al-Irsyadiah", "SMK Timbua", "SMKA Mohamad Ali"
+                ].map(sch => ({ title: "Sekolah Cemerlang", name: sch, school: "Kehadiran Murid ≥ 95%" })) 
+            },
+            { 
+                category: "MAKMUR", 
+                title: "Pengurusan Tandas Terbaik (5 Bintang)", 
+                recipients: [
+                    "SK Bundu Tuhan", "SK Kandawayon", "SK Kirokot", "SK Matupang", "SK Mesilou", "SK Nalapak", "SK Napong", "SK Narawang", "SK Pahu Himbaan", "SK Tinanom", "SMK Ulu Sugut", "SRK Don Bosco"
+                ].map(sch => ({ title: "Tandas 5 Bintang", name: sch, school: "Pengurusan Tandas Kebersihan Bintang 5" })) 
+            },
+            { 
+                category: "MAKMUR", 
+                title: "PIBG Cemerlang", 
+                recipients: [
+                    "SK Keranaan", "SK Kilimu", "SK Marakau", "SMK Lohan", "SMK Matupang Jaya"
+                ].map(sch => ({ title: "PIBG Cemerlang", name: sch, school: "Anugerah Pengurusan PIBG Cemerlang" })) 
+            },
+            { category: "MAKMUR", title: "HEM Guru & Pengurusan Sekolah", recipients: [
+                { title: "Encik", name: "HEITIN BIN YUSOF @ HAITIN", school: "SMK LOHAN (PK HEM Cemerlang SM)" },
+                { title: "Encik", name: "JUMADI BIN MUSA", school: "SK KINAPULIDAN (PK HEM Cemerlang SR)" },
+                { title: "Encik", name: "ROBERT MADSATI", school: "SMK MATUPANG JAYA (Guru PPDa Cemerlang SM)" },
+                { title: "Encik", name: "RICHARD BIN GALABI", school: "SRK DON BOSCO (Guru PPDa Cemerlang SR)" },
+                { title: "Puan", name: "VELBIRA VINCENT", school: "SMK KUNDASANG (Guru Inovasi Kaunseling SM)" },
+                { title: "Puan", name: "NAINEH MAHIRI", school: "SK LOHAN (Guru Inovasi Kaunseling SR)" },
+                { title: "Encik", name: "PHILIP DOLINTING", school: "SMK KEMBURONGOH (Amalan Terbaik B&K SM)" },
+                { title: "Encik", name: "MOHD AZLAN BIN YAKUB", school: "SK KILIMU (Amalan Terbaik Program Minda Sihat SR)" },
+                { title: "Sekolah", name: "SMK LOHAN", school: "Laluan PPDa Cemerlang SM" },
+                { title: "Sekolah", name: "SK PEKAN DUA", school: "Laluan PPDa Cemerlang SR" },
+                { title: "Sekolah", name: "SMK RANAU", school: "Laman Minda Sihat Terbaik SM" },
+                { title: "Sekolah", name: "SMA AL IRSYADIAH", school: "Pengurusan Pendidikan Dadah Cemerlang SM" },
+                { title: "Sekolah", name: "SRK DON BOSCO", school: "Pengurusan Pendidikan Dadah Cemerlang SR" },
+                { title: "Sekolah", name: "SMK AGAMA MOHAMAD ALI", school: "Pengurusan SPBT Cemerlang SM" },
+                { title: "Sekolah", name: "SRK DON BOSCO", school: "Pengurusan SPBT Cemerlang SR" },
+                { title: "Sekolah", name: "SMK MAT SALLEH", school: "Pengurusan Asrama Cemerlang SM" },
+                { title: "Sekolah", name: "SK TINANOM", school: "Pengurusan Asrama Cemerlang SR" }
+            ]},
+            { category: "MAKMUR", title: "Jurulatih Utama (JU) Cemerlang", recipients: [
+                { title: "Encik", name: "MOHAMAD SYAHRIL SALIM", school: "SMK BUNDU TUHAN (JU e.Rekod Kaunseling)" },
+                { title: "Encik", name: "MOHAMMAD HANAFIAH BIN HARIS", school: "SMK MAT SALLEH (JU Data Asrama)" },
+                { title: "Cik", name: "ANRIETA JAIM", school: "SMK ULU SUGUT (JU Kewangan Asrama)" },
+                { title: "Puan", name: "RUTSIA BINTI SAIBOL", school: "SMK MATUPANG JAYA (JU Minda Sihat SM)" },
+                { title: "Puan", name: "SARY DEWI BINTI JUNAEDI", school: "SK ST BENEDICT (JU Minda Sihat SR)" },
+                { title: "Encik", name: "ASLISON GILI", school: "SMK TIMBUA (JU Psikometrik SM)" },
+                { title: "Encik", name: "MOHD AZLAN BIN YAKUB", school: "SK KILIMU (JU Psikometrik SR)" },
+                { title: "Puan", name: "ERVINA RAIMON", school: "SMK RANAU (JU SPBT SM)" },
+                { title: "Ustazah", name: "MARLINA @ NUR JANNAH BINTI SAMIN", school: "SK LANGSAT (JU SPBT SR)" }
+            ]},
+            { category: "MAKMUR", title: "KoKum Guru & Murid", recipients: [
+                { title: "Encik", name: "JUNI DIKUL", school: "SMK RANAU (KoKum Guru Cemerlang SM)" },
+                { title: "Puan", name: "JAIDAH BT WASILI @ MION", school: "SK TIMBUA (KoKum Guru Cemerlang SR)" },
+                { title: "Encik", name: "CHE OMAR BIN CHE SOH", school: "SMK ULU SUGUT (KoKum Guru KRS SM)" },
+                { title: "Puan", name: "SUSANTI BINTI ADZMIN", school: "SMK RANAU (KoKum Guru Badan Beruniform SM)" },
+                { title: "Puan", name: "HAMIDAH BINTI ABDUL HAMID", school: "SK LOHAN (KoKum Guru Badan Beruniform SR)" },
+                { title: "Encik", name: "MOHAMAD ZAINUDDIN BIN IBRAHIM", school: "SMK MAT SALLEH (KoKum Guru Pengurusan SM)" },
+                { title: "Encik", name: "SABDALI BIN BESARI", school: "SK TIBABAR K9 (KoKum Guru Pengurusan SR)" },
+                { title: "Encik", name: "RAMDY JAIMIS", school: "SMK MAT SALLEH (KoKum Guru PT Kesenian SM)" },
+                { title: "Puan", name: "ELLY EZRA SAIMIN", school: "SK ST BENEDICT (KoKum Guru PT Kesenian SR)" },
+                { title: "Cik", name: "NABIHAH INSYIRAH BINTI MOHD ILHAM", school: "SMA AL IRSYADIAH (KoKum Guru PT MBMMBI SM)" },
+                { title: "Cik", name: "AVELLA ANDAU", school: "SK TOBOH (KoKum Guru PT MBMMBI SR)" },
+                { title: "Puan", name: "ADRIANYSIA FRANCIS", school: "SMK KUNDASANG (KoKum Guru PT STEM SM)" },
+                { title: "Encik", name: "ELVIVIEN JUANNIS", school: "SK NAPONG (KoKum Guru PT STEM SR)" },
+                { title: "Puan", name: "NORMALA BINTI SALLEH", school: "SK PEKAN (KoKum Guru TKRS SR)" },
+                { title: "Murid", name: "DARYL DAVE DARWIN", school: "SMK LOHAN (KoKum Murid Cemerlang Lelaki SM)" },
+                { title: "Murid", name: "TAN HOLLIS", school: "SJK(C) PAI WEN (KoKum Murid Cemerlang Lelaki SR)" },
+                { title: "Murid", name: "NURUL SYAZWANI QISTINA BINTI MUHAMMAD AMIN", school: "SMKA MOHAMAD ALI (KoKum Murid Cemerlang Perempuan SM)" },
+                { title: "Murid", name: "QISTINA IZZ ZARA BINTI ROBLIN", school: "SK RANDAGONG (KoKum Murid Cemerlang Perempuan SR)" }
+            ]},
+            { category: "MAKMUR", title: "Sukan Guru, Murid & Sekolah", recipients: [
+                { title: "Encik", name: "JULAIRIN SURIN", school: "SMK KUNDASANG (Sukan Guru Pendidikan Khas)" },
+                { title: "Encik", name: "JURAIDI RIBIN", school: "SMK TIMBUA (Sukan Guru Cemerlang SM)" },
+                { title: "Encik", name: "MIJAN TULIN", school: "SK TAMPIOS (Sukan Guru Cemerlang SR)" },
+                { title: "Encik", name: "MOHAMAD ZAINI BIN SUBIN", school: "SMK MAT SALLEH (Pegawai Teknik & Pembangunan Sukan)" },
+                { title: "Encik", name: "NOR AZMAN NAUTH", school: "SMK LOHAN (Pegawai Teknik & Pembangunan Sukan)" },
+                { title: "Puan", name: "SIJAH BINTI AJIS", school: "SK PAGINATAN (Pegawai Teknik & Pembangunan Sukan)" },
+                { title: "Murid", name: "MOHAMMAD ZAMIIL NAJIH B MOHAMAD ZAINI", school: "SMK MAT SALLEH (Sukan Murid Lelaki SM)" },
+                { title: "Murid", name: "IRWAN MUNIF BIN KAHIRUL ANUAR", school: "SK KUNDASANG (Sukan Murid Lelaki SR)" },
+                { title: "Murid", name: "NUR IZZ ZAYANI BINTI ZULHIMAT", school: "SMK LOHAN (Sukan Murid Perempuan SM)" },
+                { title: "Murid", name: "NUR AWLIYA BELLA BINTI ABDULLAH", school: "SK KINASARABAN (Sukan Murid Perempuan SR)" },
+                { title: "Sekolah", name: "SMKA MOHAMAD ALI", school: "Pengurusan Sukan Terbaik SM" },
+                { title: "Sekolah", name: "SK TAMPIOS", school: "Pengurusan Sukan Terbaik SR" }
+            ]},
+            { category: "MAKMUR", title: "KoKum Sekolah & PAJSK", recipients: [
+                { title: "Sekolah Rendah", name: "SK KAMPONG LIBANG", school: "KoKum Sekolah Cemerlang Luar Bandar SR" },
+                { title: "Sekolah Rendah", name: "SK TIBABAR K9", school: "KoKum Sekolah Cemerlang Pedalaman SR" },
+                { title: "Sekolah Rendah", name: "SK RANDAGONG", school: "KoKum Sekolah Cemerlang SKM" },
+                { title: "Sekolah Menengah", name: "SMK ULU SUGUT", school: "KoKum Sekolah Cemerlang SM" },
+                { title: "Sekolah Menengah", name: "SMK ULU SUGUT", school: "Kelab Persatuan Cemerlang SM" },
+                { title: "Sekolah Rendah", name: "SK TIMBUA", school: "Kelab Persatuan Cemerlang SR" },
+                { title: "Sekolah Menengah", name: "SMK MAT SALLEH", school: "PAJSK Cemerlang SM" },
+                { title: "Sekolah Rendah", name: "SK RATAU", school: "PAJSK Cemerlang SR" },
+                { title: "Sekolah Menengah", name: "SMK RANAU", school: "Sukan Permainan Cemerlang SM (Hoki)" },
+                { title: "Sekolah Rendah", name: "SJK(C) PAI WEN", school: "Sukan Permainan Cemerlang SR (Bola Baling)" }
+            ]}
+        ];
+
+        let currentCategoryFilter = 'ALL';
+        let currentModalAwardIndex = null;
+
+        window.toggleMobileSidebar = function() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar) sidebar.classList.toggle('-translate-x-full');
+            if (overlay) overlay.classList.toggle('hidden');
+        };
+
+        window.switchTab = function(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+                tab.classList.remove('block');
+            });
+
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) {
+                targetTab.classList.remove('hidden');
+                targetTab.classList.add('block');
+            }
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.className = "nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60";
+            });
+
+            const activeNavBtn = document.getElementById('nav-' + tabId);
+            if (activeNavBtn) {
+                activeNavBtn.className = "nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-amber-400 bg-amber-500/10 border border-amber-500/30";
+            }
+
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar && !sidebar.classList.contains('-translate-x-full')) {
+                window.toggleMobileSidebar();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        window.renderAJK = function() {
+            const container = document.getElementById('ajk-accordion-container');
+            if (!container) return;
+
+            const searchQuery = (document.getElementById('search-ajk')?.value || '').toLowerCase();
+            container.innerHTML = '';
+
+            ajkPelaksanaList.forEach((ajk, index) => {
+                const matchesSearch = ajk.name.toLowerCase().includes(searchQuery) || 
+                                     ajk.members.some(m => m.toLowerCase().includes(searchQuery));
+                
+                if (searchQuery && !matchesSearch) return;
+
+                const item = document.createElement('div');
+                item.className = "bg-slate-950/60 border border-slate-800/80 rounded-xl overflow-hidden transition";
+                
+                item.innerHTML = `
+                    <button onclick="window.toggleAccordion(${index})" class="w-full flex items-center justify-between p-4 text-left font-medium text-slate-200 hover:text-amber-400 transition focus:outline-none">
+                        <span class="text-sm font-bold">${ajk.name} <span class="text-xs font-normal text-slate-400 ml-2">(${ajk.members.length} Ahli)</span></span>
+                        <i id="acc-icon-${index}" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="acc-content-${index}" class="${searchQuery ? 'block' : 'hidden'} px-4 pb-4 border-t border-slate-800/40 pt-3">
+                        <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                            ${ajk.members.map(m => `<li class="hover:text-amber-300 transition">${m}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        };
+
+        window.toggleAccordion = function(index) {
+            const content = document.getElementById(`acc-content-${index}`);
+            const icon = document.getElementById(`acc-icon-${index}`);
+            if (content && icon) {
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            }
+        };
+
+        window.filterAJK = function() {
+            window.renderAJK();
+        };
+
+        window.filterCategory = function(cat) {
+            currentCategoryFilter = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition";
+            });
+            const activeBtn = document.getElementById('btn-cat-' + cat);
+            if (activeBtn) {
+                activeBtn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500 text-slate-950 transition";
+            }
+            window.renderAwards();
+        };
+
+        window.renderAwards = function() {
+            const grid = document.getElementById('awards-grid');
+            const visibleCountEl = document.getElementById('visible-count');
+            if (!grid) return;
+
+            const searchQuery = (document.getElementById('search-award')?.value || '').toLowerCase();
+            grid.innerHTML = '';
+            let totalRecipientsDisplayed = 0;
+
+            awardsData.forEach((award, index) => {
+                if (currentCategoryFilter !== 'ALL' && award.category !== currentCategoryFilter) return;
+
+                const matchesSearch = award.title.toLowerCase().includes(searchQuery) ||
+                                     award.recipients.some(r => ((r.title || '') + ' ' + r.name + ' ' + r.school).toLowerCase().includes(searchQuery));
+
+                if (searchQuery && !matchesSearch) return;
+
+                totalRecipientsDisplayed += award.recipients.length;
+
+                const card = document.createElement('div');
+                card.className = "bg-slate-950/70 border border-slate-800/80 rounded-2xl p-5 hover:border-amber-500/40 transition cursor-pointer flex flex-col justify-between group glow-gold";
+                card.onclick = () => window.openRecipientModal(index);
+
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30">${award.category}</span>
+                            <span class="text-xs font-medium text-slate-400"><i class="fa-solid fa-users text-amber-400 mr-1"></i>${award.recipients.length} Penerima</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-100 group-hover:text-amber-400 transition font-serif leading-snug">${award.title}</h4>
+                        <p class="text-xs text-slate-400 line-clamp-2">${award.recipients.slice(0, 3).map(r => r.name).join(', ')}...</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/60 mt-4 flex items-center justify-between text-xs text-amber-400 font-semibold">
+                        <span>Lihat Senarai Penerima</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            if (visibleCountEl) {
+                visibleCountEl.textContent = totalRecipientsDisplayed;
+            }
+        };
+
+        window.openRecipientModal = function(awardIndex) {
+            currentModalAwardIndex = awardIndex;
+            const award = awardsData[awardIndex];
+            if (!award) return;
+
+            document.getElementById('modal-category-badge').textContent = award.category;
+            document.getElementById('modal-award-title').textContent = award.title;
+            document.getElementById('modal-recipient-count').textContent = `${award.recipients.length} Penerima`;
+            document.getElementById('modal-search').value = '';
+
+            window.renderModalRecipients();
+            document.getElementById('recipient-modal').classList.remove('hidden');
+        };
+
+        window.closeModal = function() {
+            document.getElementById('recipient-modal').classList.add('hidden');
+        };
+
+        window.filterModalRecipients = function() {
+            window.renderModalRecipients();
+        };
+
+        window.renderModalRecipients = function() {
+            const listContainer = document.getElementById('modal-recipient-list');
+            if (!listContainer || currentModalAwardIndex === null) return;
+
+            const award = awardsData[currentModalAwardIndex];
+            const searchQuery = (document.getElementById('modal-search')?.value || '').toLowerCase();
+            listContainer.innerHTML = '';
+
+            const filtered = award.recipients.filter(r => 
+                ((r.title || '') + ' ' + r.name + ' ' + r.school).toLowerCase().includes(searchQuery)
+            );
+
+            if (filtered.length === 0) {
+                listContainer.innerHTML = `<p class="text-xs text-slate-400 text-center py-6">Tiada rekod ditemui mengikut carian.</p>`;
+                return;
+            }
+
+            filtered.forEach((r, idx) => {
+                const item = document.createElement('div');
+                item.className = "bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-start space-x-3";
+                item.innerHTML = `
+                    <span class="w-6 h-6 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">${idx + 1}</span>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-xs font-bold text-slate-100 truncate">${r.title ? r.title + ' ' : ''}${r.name}</p>
+                        <p class="text-[11px] text-amber-400 font-medium mt-0.5">${r.school}</p>
+                    </div>
+                `;
+                listContainer.appendChild(item);
+            });
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const coverLogo = document.getElementById('cover-logo');
+            const sidebarLogo = document.getElementById('sidebar-logo');
+            const mobileHeaderLogo = document.getElementById('mobile-header-logo');
+
+            if (coverLogo) autoRemoveLogoBackground(coverLogo);
+            if (sidebarLogo) autoRemoveLogoBackground(sidebarLogo);
+            if (mobileHeaderLogo) autoRemoveLogoBackground(mobileHeaderLogo);
+
+            window.renderAJK();
+            window.renderAwards();
+        });
+    </script>
+</body>
+</html>
