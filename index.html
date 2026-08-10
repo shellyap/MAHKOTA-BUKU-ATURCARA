@@ -74,8 +74,8 @@
 </head>
 <body class="batik-bg min-h-screen text-slate-100 flex flex-col md:flex-row antialiased selection:bg-amber-500 selection:text-slate-900">
 
-    <!-- Audio Element for Award Music -->
-    <audio id="award-audio" src="./Award%20Music%20%20Winner%20(1).mp3" preload="auto"></audio>
+    <!-- Audio Element for Award Music (Referencing music.mp3) -->
+    <audio id="award-audio" src="./music.mp3" preload="auto"></audio>
 
     <!-- Mobile Top Navigation Bar -->
     <header class="md:hidden sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-4 py-3 flex items-center justify-between">
@@ -685,9 +685,53 @@
         function playAwardSound() {
             if (!isAudioEnabled) return;
             const audio = document.getElementById('award-audio');
+            
             if (audio) {
                 audio.currentTime = 0;
-                audio.play().catch(e => console.log("Audio autoplay prevented by browser policy:", e));
+                const promise = audio.play();
+                if (promise !== undefined) {
+                    promise.catch(e => {
+                        console.log("MP3 file not hosted locally, using synthesized fanfare sound fallback:", e);
+                        playSynthesizedFanfare();
+                    });
+                }
+            } else {
+                playSynthesizedFanfare();
+            }
+        }
+
+        function playSynthesizedFanfare() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const ctx = new AudioContext();
+                
+                // Triumphant Fanfare Harmonies (C5, E5, G5, C6 & E6)
+                const notes = [
+                    { freq: 523.25, start: 0.00, duration: 0.15 },
+                    { freq: 659.25, start: 0.12, duration: 0.15 },
+                    { freq: 783.99, start: 0.24, duration: 0.20 },
+                    { freq: 1046.50, start: 0.40, duration: 0.80 },
+                    { freq: 1318.51, start: 0.40, duration: 0.80 }
+                ];
+
+                notes.forEach(n => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(n.freq, ctx.currentTime + n.start);
+                    
+                    gain.gain.setValueAtTime(0.25, ctx.currentTime + n.start);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + n.start + n.duration);
+                    
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    
+                    osc.start(ctx.currentTime + n.start);
+                    osc.stop(ctx.currentTime + n.start + n.duration);
+                });
+            } catch(e) {
+                console.warn("Web Audio API sound error:", e);
             }
         }
 
@@ -716,6 +760,7 @@
                         const min = Math.min(r, g, b);
                         const diff = max - min;
 
+                        // Identify white or neutral light grey grid pixels
                         if ((max > 170 && diff < 30) || (r > 200 && g > 200 && b > 200)) {
                             data[i + 3] = 0; // Alpha transparent
                         }
@@ -964,7 +1009,7 @@
                 { title: "Encik", name: "PREMMIER TAIN BIN TAIN", school: "SMK MAT SALLEH" },
                 { title: "Puan", name: "NOORIDAH BINTI SABLEE", school: "SMK MAT SALLEH" },
                 { title: "Encik", name: "WATSIMIN BIN SULAIMAN @ WASIMIN", school: "SMK MAT SALLEH" },
-                { title: "Cik", name: "EMALIANA BINTI GAKOU @ NURAMALINA SALLEH", school: "SMK MAT SALLEH" },
+                { title: "CIK", name: "EMALIANA BINTI GAKOU @ NURAMALINA SALLEH", school: "SMK MAT SALLEH" },
                 { title: "Puan", name: "ESMA BINTI FAUZI", school: "SMK MAT SALLEH" },
                 { title: "Encik", name: "MOHD. REDZLAN BIN MOHAMMAD", school: "SMK MAT SALLEH" },
                 { title: "Puan", name: "RAINEH @ RAYNE BINTI BUIK", school: "SMK MAT SALLEH" },
