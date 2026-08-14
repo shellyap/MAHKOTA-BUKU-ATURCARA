@@ -75,7 +75,7 @@
 <body class="batik-bg min-h-screen text-slate-100 flex flex-col md:flex-row antialiased selection:bg-amber-500 selection:text-slate-900">
 
     <!-- Audio Element for Award Music (Referencing music.mp3) -->
-    <audio id="award-audio" src="./music.mp3" preload="auto"></audio>
+    <audio id="award-audio" src="./music.mp3" preload="auto" loop></audio>
 
     <!-- Mobile Top Navigation Bar -->
     <header class="md:hidden sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-4 py-3 flex items-center justify-between">
@@ -802,9 +802,26 @@
         }
         initAuth();
 
-        // AUDIO CONTROL LOGIC WITH VOLUME SLIDER (Default set to 20% to prevent shock)
-        let isAudioEnabled = true;
+        // AUDIO CONTROL LOGIC WITH VOLUME SLIDER (Default set to 20%)
+        let isAudioEnabled = false;
         let currentVolume = 0.2; // 20% default volume
+        let audioInitialized = false;
+
+        function updateAudioUI(playing) {
+            const icon = document.getElementById('audio-icon');
+            const iconMobile = document.getElementById('audio-icon-mobile');
+            const text = document.getElementById('audio-status-text');
+
+            if (playing) {
+                if (icon) icon.className = "fa-solid fa-volume-high text-sm text-amber-400 w-4 text-center";
+                if (iconMobile) iconMobile.className = "fa-solid fa-music text-lg text-amber-400";
+                if (text) text.textContent = "Muzik Anugerah";
+            } else {
+                if (icon) icon.className = "fa-solid fa-volume-xmark text-sm text-slate-500 w-4 text-center";
+                if (iconMobile) iconMobile.className = "fa-solid fa-volume-xmark text-lg text-slate-500";
+                if (text) text.textContent = "Muzik Bisu";
+            }
+        }
 
         window.setVolume = function(val) {
             currentVolume = parseFloat(val);
@@ -816,38 +833,53 @@
             if (percentEl) {
                 percentEl.textContent = Math.round(currentVolume * 100) + '%';
             }
-            const icon = document.getElementById('audio-icon');
-            const iconMobile = document.getElementById('audio-icon-mobile');
-            
             if (currentVolume === 0) {
-                if (icon) icon.className = "fa-solid fa-volume-xmark text-sm text-slate-500 w-4 text-center";
-                if (iconMobile) iconMobile.className = "fa-solid fa-volume-xmark text-lg text-slate-500";
-            } else {
-                if (icon) icon.className = "fa-solid fa-volume-high text-sm text-amber-400 w-4 text-center";
-                if (iconMobile) iconMobile.className = "fa-solid fa-music text-lg text-amber-400";
+                updateAudioUI(false);
+            } else if (isAudioEnabled) {
+                updateAudioUI(true);
             }
         };
 
+        function startAudioOnUserInteraction() {
+            if (audioInitialized) return;
+            const audio = document.getElementById('award-audio');
+            if (audio) {
+                audio.volume = currentVolume;
+                const promise = audio.play();
+                if (promise !== undefined) {
+                    promise.then(() => {
+                        isAudioEnabled = true;
+                        audioInitialized = true;
+                        updateAudioUI(true);
+                    }).catch(e => {
+                        console.log("Autoplay on user gesture blocked or music file not loaded yet:", e);
+                    });
+                }
+            }
+        }
+
         window.toggleAudio = function() {
             const audio = document.getElementById('award-audio');
-            const icon = document.getElementById('audio-icon');
-            const iconMobile = document.getElementById('audio-icon-mobile');
-            const text = document.getElementById('audio-status-text');
-
             if (!audio) return;
 
-            if (isAudioEnabled) {
+            if (isAudioEnabled && !audio.paused) {
                 isAudioEnabled = false;
                 audio.pause();
-                if (icon) icon.className = "fa-solid fa-volume-xmark text-sm text-slate-500 w-4 text-center";
-                if (iconMobile) iconMobile.className = "fa-solid fa-volume-xmark text-lg text-slate-500";
-                if (text) text.textContent = "Muzik Bisu";
+                updateAudioUI(false);
             } else {
                 isAudioEnabled = true;
-                if (icon) icon.className = "fa-solid fa-volume-high text-sm text-amber-400 w-4 text-center";
-                if (iconMobile) iconMobile.className = "fa-solid fa-music text-lg text-amber-400";
-                if (text) text.textContent = "Muzik Anugerah";
-                playAwardSound();
+                audio.volume = currentVolume;
+                const promise = audio.play();
+                if (promise !== undefined) {
+                    promise.then(() => {
+                        audioInitialized = true;
+                        updateAudioUI(true);
+                    }).catch(e => {
+                        console.warn("Audio play error, using synthesized fanfare fallback:", e);
+                        playSynthesizedFanfare();
+                        updateAudioUI(true);
+                    });
+                }
             }
         };
 
@@ -855,16 +887,8 @@
             if (!isAudioEnabled) return;
             const audio = document.getElementById('award-audio');
             
-            if (audio) {
-                audio.volume = currentVolume; // Ensure custom volume level is used
-                audio.currentTime = 0;
-                const promise = audio.play();
-                if (promise !== undefined) {
-                    promise.catch(e => {
-                        console.log("MP3 file fallback or synthesized fanfare:", e);
-                        playSynthesizedFanfare();
-                    });
-                }
+            if (audio && !audio.paused) {
+                audio.volume = currentVolume;
             } else {
                 playSynthesizedFanfare();
             }
@@ -1116,13 +1140,30 @@
             { category: "MAPenS", title: "Guru Ikon", recipients: [
                 { title: "Puan", name: "AZYAN JOUNIS", school: "SRK DON BOSCO (Guru Muda Berpotensi)" },
                 { title: "Encik", name: "KEVIN SURESH A/L GANAKURU", school: "SK GANA-GANA (Guru Kokurikulum)" },
-                { title: "Puan", name: "MARIAM BINTI MANCHA", school: "SK SAGINDAI (Guru TVET SR)" },
-                { title: "Encik", name: "RICHARD @ ABD HANIF ENGGAM ABDULLAH", school: "SMK LOHAN (Guru TVET SM)" },
-                { title: "Puan", name: "EDZLYN LADUNI", school: "SK TIMBUA (Guru STEM SR)" },
-                { title: "Puan", name: "MALININ ANGGONG", school: "SMK ULU SUGUT (Guru STEM SM)" },
+                { title: "Puan", name: "MARIAM BINTI MANCHA", school: "SK SAGINDAI (Guru TVET)" },
+                { title: "Puan", name: "EDZLYN LADUNI", school: "SK TIMBUA (Guru STEM)" },
                 { title: "Encik", name: "JASLI HJ MIAN", school: "SMK LOHAN (Guru Sukan)" },
+                { title: "Encik", name: "RICHARD @ ABD HANIF ENGGAM ABDULLAH", school: "SMK LOHAN (Guru TVET)" },
                 { title: "Encik", name: "RAMDY JAIMIS", school: "SMK MAT SALLEH (Guru Seni Persembahan)" },
-                { title: "Encik", name: "ASLISON GILI", school: "SMK TIMBUA (Guru Bimbingan dan Kaunseling)" }
+                { title: "Encik", name: "ASLISON GILI", school: "SMK TIMBUA (Guru Bimbingan dan Kaunseling)" },
+                { title: "Puan", name: "MALININ ANGGONG", school: "SMK ULU SUGUT (Guru STEM)" },
+                { title: "Puan", name: "NUR SHAWALIA FITRI AZI BINTI ABD RASHID", school: "SK PORING (Guru Teknologi Pendidikan)" },
+                { title: "Puan", name: "MARLINEH BINTI MASDIN", school: "SMK BUNDU TUHAN (Guru Teknologi Pendidikan)" },
+                { title: "Puan", name: "SCHOLASTICA SAHINUN", school: "SK KAMPONG LIBANG (ADIGURU)" }
+            ]},
+            { category: "MAPenS", title: "Guru Berwibawa", recipients: [
+                { title: "Encik", name: "HAMDAN @ MOHD HAMDAN BIN TAIP", school: "SK RATAU (Guru Cemerlang OKU Berwibawa)" },
+                { title: "Encik", name: "ALBERT ULANA", school: "SK MANGKAPOH (Guru Hebat Bahasa)" },
+                { title: "Puan", name: "SITI AZRINA BINTI SAIRIN", school: "SK MATUPANG (Guru Pendidikan Khas Berwibawa SR)" },
+                { title: "Puan", name: "NINA DEWI BINTI SHAMSUDDIN", school: "SMK MATUPANG JAYA (Guru Pendidikan Khas Berwibawa SM)" },
+                { title: "Puan", name: "ANIS IRFANI BINTI ROSLI", school: "TADIKA CURAHAN KASIH (Guru Sekolah/Tadika Swasta)" }
+            ]},
+            { category: "MAPenS", title: "Guru Inovatif", recipients: [
+                { title: "Puan", name: "LESLY MAJANA", school: "SK PORING (Individu Prasekolah KPM)" },
+                { title: "Puan", name: "LENNY LORINA RAIMON", school: "SK RATAU (Individu Sekolah Rendah)" },
+                { title: "Puan", name: "KAREN MAH SHU KYUN @ FARAH DAMIA ABDULLAH", school: "SMK MAT SALLEH (Individu Sekolah Menengah)" },
+                { title: "Puan", name: "NAJAA ALIAH BINTI JUPILIN", school: "TADIKA ALAM CERIA (Individu Prasekolah Swasta)" },
+                { title: "Kumpulan", name: "KUMPULAN RUDAI (Wahab bin Layabo, Scholastica Sahinun, Umsim @ Joseph bin Sumbat, Eddie Steiner Benedict, Siti Jalwiyah binti Jatin, Felicia Gimpeh, Angriana Anthony, Allysiah Ukon, Jennifer Disoni @ Sonny)", school: "SK KAMPONG LIBANG (Kumpulan Prasekolah - Menengah)" }
             ]},
             { category: "MAPenS", title: "Guru Berwibawa", recipients: [
                 { title: "Encik", name: "HAMDAN @ MOHD HAMDAN BIN TAIP", school: "SK RATAU (Guru Cemerlang OKU Berwibawa)" },
@@ -1415,14 +1456,13 @@
             // MAKMUR
             { 
                 category: "MAKMUR", 
-                title: "PIBG Cemerlang & Sumbangan Sukarela", 
+                title: "PIBG Cemerlang", 
                 recipients: [
                     { title: "PIBG Cemerlang", name: "SMK MATUPANG JAYA", school: "Anugerah PIBG Cemerlang" },
                     { title: "PIBG Cemerlang", name: "SMK LOHAN", school: "Anugerah PIBG Cemerlang" },
                     { title: "PIBG Cemerlang", name: "SK MARAKAU", school: "Anugerah PIBG Cemerlang" },
                     { title: "PIBG Cemerlang", name: "SK KILIMU", school: "Anugerah PIBG Cemerlang" },
-                    { title: "PIBG Cemerlang", name: "SK KERANAAN", school: "Anugerah PIBG Cemerlang" },
-                    { title: "PPD Ranau", name: "SUMBANGAN SUKARELA IBU BAPA", school: "Apresiasi Sumbangan Sukarela" }
+                    { title: "PIBG Cemerlang", name: "SK KERANAAN", school: "Anugerah PIBG Cemerlang" }
                 ] 
             },
             { category: "MAKMUR", title: "HEM Guru & Pengurusan Sekolah", recipients: [
@@ -1688,12 +1728,9 @@
             const audio = document.getElementById('award-audio');
             if (audio) audio.volume = currentVolume;
 
-            // Unlock browser audio autoplay restrictions on user interaction
-            document.addEventListener('click', function unlockAudio() {
-                if (audio) {
-                    audio.volume = currentVolume;
-                }
-            }, { once: true });
+            // Auto-start music at 20% on first tap/click anywhere on published page
+            document.addEventListener('click', startAudioOnUserInteraction, { once: true });
+            document.addEventListener('touchstart', startAudioOnUserInteraction, { once: true });
 
             initCountdown();
             initGuestbookSync();
