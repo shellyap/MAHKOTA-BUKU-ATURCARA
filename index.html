@@ -74,7 +74,7 @@
 </head>
 <body class="batik-bg min-h-screen text-slate-100 flex flex-col md:flex-row antialiased selection:bg-amber-500 selection:text-slate-900">
 
-    <!-- Audio Element for Award Music (Referencing music.mp3) -->
+    <!-- Audio Element for Award Music -->
     <audio id="award-audio" src="./music.mp3" preload="auto" loop></audio>
 
     <!-- Mobile Top Navigation Bar -->
@@ -89,8 +89,8 @@
             </div>
         </div>
         <div class="flex items-center space-x-2">
-            <button id="audio-toggle-btn-mobile" onclick="window.toggleAudio()" class="p-2 text-amber-400 hover:text-amber-300 focus:outline-none" title="Muzik Anugerah">
-                <i id="audio-icon-mobile" class="fa-solid fa-music text-lg"></i>
+            <button id="audio-toggle-btn-mobile" onclick="window.toggleAudio()" class="p-2 text-slate-500 hover:text-amber-300 focus:outline-none" title="Muzik Anugerah">
+                <i id="audio-icon-mobile" class="fa-solid fa-volume-xmark text-lg"></i>
             </button>
             <button id="mobile-menu-btn" onclick="window.toggleMobileSidebar()" class="p-2 text-slate-300 hover:text-amber-400 focus:outline-none">
                 <i class="fa-solid fa-bars text-xl"></i>
@@ -140,7 +140,7 @@
                 <i class="fa-solid fa-pen-fancy text-base w-5 text-center"></i>
                 <span>Buku Pelawat</span>
             </button>
-
+            
             <button onclick="window.switchTab('tab-attendance')" id="nav-tab-attendance" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">
                 <i class="fa-solid fa-clipboard-user text-base w-5 text-center"></i>
                 <span>Pengesahan Kehadiran</span>
@@ -153,10 +153,10 @@
 
             <!-- Audio Control Widget with Volume Slider -->
             <div class="mt-4 p-3.5 rounded-xl bg-amber-950/40 border border-amber-800/50 space-y-2.5">
-                <button onclick="window.toggleAudio()" id="audio-toggle-btn" class="w-full flex items-center justify-between text-xs font-semibold text-amber-300 hover:text-amber-200 focus:outline-none">
+                <button onclick="window.toggleAudio()" id="audio-toggle-btn" class="w-full flex items-center justify-between text-xs font-semibold text-slate-400 hover:text-amber-200 focus:outline-none">
                     <div class="flex items-center space-x-2">
-                        <i id="audio-icon" class="fa-solid fa-volume-high text-sm text-amber-400 w-4 text-center"></i>
-                        <span id="audio-status-text">Muzik Anugerah</span>
+                        <i id="audio-icon" class="fa-solid fa-volume-xmark text-sm text-slate-500 w-4 text-center"></i>
+                        <span id="audio-status-text">Muzik Bisu</span>
                     </div>
                     <span id="volume-percent" class="text-[10px] text-amber-400 font-mono bg-slate-900/80 px-1.5 py-0.5 rounded border border-amber-800/50">20%</span>
                 </button>
@@ -204,9 +204,14 @@
                         </div>
                     </div>
 
-                    <h1 class="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 leading-tight">
-                        MAJLIS PENGIKTIRAFAN DAN KECEMERLANGAN PENDIDIKAN RANAU
-                    </h1>
+                    <div class="space-y-4 my-4">
+                        <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 tracking-wider">
+                            MAHKOTA 2026
+                        </h1>
+                        <h2 class="text-xl md:text-3xl lg:text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 leading-snug">
+                            MAJLIS PENGHARGAAN DAN KECEMERLANGAN PENDIDIKAN RANAU
+                        </h2>
+                    </div>
                     <p class="text-lg md:text-xl text-amber-300/90 font-serif font-semibold tracking-wide">
                         SESI 2025 / 2026
                     </p>
@@ -404,7 +409,7 @@
                         </div>
                         <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1">
                             <p class="text-xs font-bold text-amber-400 uppercase tracking-wider">Persembahan 1</p>
-                            <p class="text-sm font-semibold text-slate-200 mt-0.5">Nyanyian Solo daripada Nur Shahirah Binti Jamaludin- SMK Kundasang</p>
+                            <p class="text-sm font-semibold text-slate-200 mt-0.5">Persembahan Kulintangan daripada Danish Adi Putra Bin Alhadzrie- SMK Kundasang</p>
                         </div>
                     </div>
 
@@ -492,7 +497,8 @@
                         </div>
                         <div class="ml-10 md:ml-6 bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 flex-1">
                             <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
-                                <li>Penyampaian Cenderahati</li>
+                                <li>Penyampaian Sijil kepada wakil Pempamer</li>
+                                <li>Penyampaian Cenderahati kepada Perasmi</li>
                                 <li>Sesi Bergambar</li>
                                 <li>Jamuan Makan Tengah Hari</li>
                             </ul>
@@ -610,10 +616,11 @@
                 <div class="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
                     <div class="flex flex-wrap gap-2">
                         <button onclick="window.filterCategory('ALL')" id="btn-cat-ALL" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500 text-slate-950 transition">Semua</button>
-                        <button onclick="window.filterCategory('MAPenS')" id="btn-cat-MAPenS" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">MAPenS</button>
                         <button onclick="window.filterCategory('APC')" id="btn-cat-APC" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">APC</button>
-                        <button onclick="window.filterCategory('MEKAR')" id="btn-cat-MEKAR" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">MEKAR</button>
+                        <button onclick="window.filterCategory('MEKAR (INSTITUSI)')" id="btn-cat-MEKAR (INSTITUSI)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">MEKAR (INSTITUSI)</button>
+                        <button onclick="window.filterCategory('MEKAR (INDIVIDU)')" id="btn-cat-MEKAR (INDIVIDU)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">MEKAR (INDIVIDU)</button>
                         <button onclick="window.filterCategory('MAKMUR')" id="btn-cat-MAKMUR" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">MAKMUR</button>
+                        <button onclick="window.filterCategory('MAPenS')" id="btn-cat-MAPenS" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">MAPenS</button>
                     </div>
 
                     <div class="relative flex-1 md:max-w-xs">
@@ -784,7 +791,6 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // Safe Firebase Auth Initialization
         async function initAuth() {
             try {
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
@@ -802,9 +808,9 @@
         }
         initAuth();
 
-        // AUDIO CONTROL LOGIC WITH VOLUME SLIDER (Default set to 20%)
+        // AUDIO CONTROL LOGIC WITH VOLUME SLIDER
         let isAudioEnabled = false;
-        let currentVolume = 0.2; // 20% default volume
+        let currentVolume = 0.2; 
         let audioInitialized = false;
 
         function updateAudioUI(playing) {
@@ -930,7 +936,6 @@
             }
         }
 
-        // AUTOMATIC LOGO BACKGROUND REMOVAL (CANVAS-BASED CHROMA KEY)
         function autoRemoveLogoBackground(imgElement) {
             if (!imgElement) return;
             const img = new Image();
@@ -950,29 +955,22 @@
                         const r = data[i];
                         const g = data[i + 1];
                         const b = data[i + 2];
-                        
                         const max = Math.max(r, g, b);
                         const min = Math.min(r, g, b);
                         const diff = max - min;
-
                         if ((max > 170 && diff < 30) || (r > 200 && g > 200 && b > 200)) {
                             data[i + 3] = 0;
                         }
                     }
-
                     ctx.putImageData(imgData, 0, 0);
                     imgElement.src = canvas.toDataURL('image/png');
-                } catch(e) {
-                    console.warn("Auto background removal skipped:", e);
-                }
+                } catch(e) {}
             };
             img.src = imgElement.src;
         }
 
-        // COUNTDOWN TIMER LOGIC
         function initCountdown() {
             const targetDate = new Date("2026-08-20T07:00:00+08:00").getTime();
-
             function updateTimer() {
                 const now = new Date().getTime();
                 const diff = targetDate - now;
@@ -1000,12 +998,11 @@
                 if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
                 if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
             }
-
             updateTimer();
             setInterval(updateTimer, 1000);
         }
 
-        // BUKU PELAWAT & UCAPAN TAHNIAH FIRESTORE LOGIC
+        // BUKU PELAWAT
         let guestbookEntries = [
             { name: "Puan Shellsia Yap", school: "PPD Ranau", message: "Tahniah dan syabas kepada seluruh warga pendidikan daerah Ranau atas kecemerlangan MAHKOTA 2025/2026!", time: "Baru sahaja" },
             { name: "Encik Vincent Sabin", school: "PPD Ranau", message: "Kemenjadian murid dan kecemerlangan sekolah bukti komitmen utuh kita bersama. Syabas!", time: "Baru sahaja" }
@@ -1043,9 +1040,7 @@
             try {
                 const docRef = doc(db, "mahkota_2026", "guestbook");
                 await setDoc(docRef, { entries: guestbookEntries });
-            } catch (err) {
-                console.warn("Guestbook saved locally:", err);
-            }
+            } catch (err) {}
         };
 
         window.renderGuestbook = function() {
@@ -1078,13 +1073,10 @@
                         guestbookEntries = docSnap.data().entries;
                         window.renderGuestbook();
                     }
-                }, (err) => console.warn("Guestbook snapshot fallback active:", err));
-            } catch(e) {
-                console.warn("Firestore guestbook sync initialized with local state.");
-            }
+                }, (err) => {});
+            } catch(e) {}
         }
 
-        // Master Data: AJK Pelaksana Teams
         const ajkPelaksanaList = [
             { name: "Jawatankuasa Anugerah", members: ["Encik Jenuil Makinda Boginda", "Encik Vincent Sabin", "Encik Sandy Kariki@Gerald", "Encik Junaidi bin Yunus", "Puan Prescilia binti Deukin"] },
             { name: "Floor Manager / Protokol / Isyarat", members: ["Encik Noonja bin Keh (K)", "Dr. Losius Goliong", "Encik Moktar Maulah"] },
@@ -1097,7 +1089,7 @@
             { name: "Backdrop", members: ["Puan Adrina Maradan (K)", "Puan Shellsia Yap", "Cik Cheryl Leonna Lontow"] },
             { name: "Buku Atur Cara", members: ["Puan Shellsia Yap (K)", "Puan Sylvia binti Matijan", "Cik Siti Salihah binti Daimin"] },
             { name: "Penyambut Tetamu Khas", members: ["Semua Timbalan PPD", "Semua Pegawai SIPartners+", "Pengerusi PPSMS", "Pengerusi PGBM Cawangan Daerah Ranau", "Puan Prescilia Deukin", "Encik Ellicxmen Manjilim (KPD)"] },
-            { name: "P/A Sistem / LED / Rakaman / Walkie Talkie", members: ["Dewan Masyarakat Ranau", "Encik Eddy Iskandar Ajmain (K)", "Encik Jaminus Agang", "Cik Cheryl Leonna Lontow", "Encik Irfan Hafiz Bin Abd Latiff (LI)"] },
+            { name: "P/A Sistem / LED / Rakaman / Walkie Talkie", members: ["Dewan Masyarakat Ranau", "Encik Jaminus Agang (K)", "Encik Mohd Shafri Jilap", "Encik Kamarul Bin Asmara", "Encik Irfan Hafiz Bin Abd Latiff (LI)"] },
             { name: "Paparan Penerima Anugerah", members: ["Encik Eddy @ Iskandar Bin Ajmain (MEKAR) (K)", "Puan Enarty Mill (MAPenS)", "Encik Hallsen Justin (MAKMUR)", "Cik Cheryl Leonna Lontow (APC)", "Encik Irfan Hafiz Bin Abd Latiff (LI)"] },
             { name: "Penyedia dan Pengurus Hadiah & Sijil", members: ["Cik Alice binti Aban (K)(MEKAR)", "Puan Adrina Maradan (MAPenS)", "Puan Nony Porodtong (APC)", "Puan Asniza Sairin (MAKMUR)", "Puan Salbiah Miki", "Cik Dorinna Florence Laimin", "Puan Irna Binti Jibing", "Puan Norhayati Nain"] },
             { name: "Pengurus Penerima Sijil", members: ["Puan Susan Inow (K) (MEKAR)", "Puan Enarty Mill (MAPenS)", "Encik Hallsen Justin (MAKMUR)", "Encik Steve Gondili (APC)", "Cik Sabrina Sitim", "Encik Razali Sumin"] },
@@ -1155,10 +1147,10 @@
                 { title: "Puan", name: "SITI AZRINA BINTI SAIRIN", school: "SK MATUPANG (Guru Berwibawa: Guru Pendidikan Khas Berwibawa)" },
                 { title: "Encik", name: "HAMDAN @ MOHD HAMDAN BIN TAIP", school: "SK RATAU (Guru Berwibawa: Guru Cemerlang OKU Berwibawa)" },
                 { title: "Puan", name: "NINA DEWI BINTI SHAMSUDDIN", school: "SMK MATUPANG JAYA (Guru Berwibawa: Guru Pendidikan Khas Berwibawa)" },
-                { title: "Puan", name: "ANIS IRFANI BINTI ROSLI", school: "TADIKA CURAHAN KASIH (Guru Berwibawa: Guru Sekolah/Tadika Swasta Berwibawa)" }
+                { title: "Puan", name: "ANIS IRFANI BINTI ROSLI", school: "TADIKA CURAHAN KASIH (Guru Berwibawa: Guru Sekolah/ Tadika Swasta Berwibawa)" }
             ]},
             { category: "MAPenS", title: "Guru Inovatif", recipients: [
-                { title: "Kumpulan", name: "KUMPULAN RUDAI (Wahab bin Layabo, Scholastica Sahinun, Umsim @ Joseph bin Sumbat, Eddie Steiner Benedict, Siti Jalwiyah binti Jatin, Felicia Gimpeh, Angriana Anthony, Allysiah Ukon, Jennifer Disoni @ Sonny)", school: "SK KAMPONG LIBANG (Guru Inovatif: Kumpulan Prasekolah hingga Menengah)" },
+                { title: "Kumpulan", name: "KUMPULAN RUDAI", school: "SK KAMPONG LIBANG (Guru Inovatif: Kumpulan Prasekolah hingga Menengah)" },
                 { title: "Puan", name: "LESLY MAJANA", school: "SK PORING (Guru Inovatif: Individu Prasekolah KPM)" },
                 { title: "Puan", name: "LENNY LORINA RAIMON", school: "SK RATAU (Guru Inovatif: Individu Sekolah Rendah)" },
                 { title: "Puan", name: "KAREN MAH SHU KYUN @ FARAH DAMIA ABDULLAH", school: "SMK MAT SALLEH (Guru Inovatif: Individu Sekolah Menengah)" },
@@ -1173,298 +1165,383 @@
 
             // APC
             { category: "APC", title: "Anugerah Perkhidmatan Cemerlang (APC 2025)", recipients: [
-                { title: "Encik", name: "NOONJA BIN KI @ NOONJA BIN KEH", school: "PPD RANAU" },
-                { title: "Puan", name: "ARNIWANA BINTI AJIMIN", school: "PPD RANAU" },
-                { title: "Encik", name: "SERIRAMA BIN EBBIE", school: "PPD RANAU" },
-                { title: "Encik", name: "SAFLEH BIN SAPIN", school: "PPD RANAU" },
-                { title: "Puan", name: "RAPEDAH BINTI HASSAN", school: "PPD RANAU" },
-                { title: "Encik", name: "ADZRUL JAIN", school: "PTIS RANAU" },
-                { title: "Puan", name: "LEONNA DAIL", school: "SMK AGAMA MOHAMAD ALI" },
-                { title: "Ustaz", name: "MUHAMAD AZIDI BIN BAKAR", school: "SMK AGAMA MOHAMAD ALI" },
-                { title: "Cik", name: "NURUL ASMAH BINTI MAHMMUD", school: "SMK AGAMA MOHAMAD ALI" },
-                { title: "Encik", name: "SAPRAN BIN OSMAN", school: "SMK AGAMA MOHAMAD ALI" },
-                { title: "Encik", name: "ISMAIL BIN JUSOH", school: "SMK AGAMA MOHAMAD ALI" },
-                { title: "Puan", name: "FLORIDAH @ FREDERICA BINTI DIRIN", school: "SMK AGAMA MOHAMAD ALI" },
-                { title: "Encik", name: "TOIMING BIN TOMPULING", school: "SMK BUNDU TUHAN" },
-                { title: "Puan", name: "NUR HIDAYU ADZUM BINTI JAMIL", school: "SMK BUNDU TUHAN" },
-                { title: "Encik", name: "JUARRIE MUSIN", school: "SMK BUNDU TUHAN" },
-                { title: "Encik", name: "RAFFDY BIN JAIP", school: "SMK BUNDU TUHAN" },
-                { title: "Puan", name: "CYNTHIA GEORGE", school: "SMK KEMBURONGOH" },
-                { title: "Puan", name: "RESTIPAH BINTI SAIDI", school: "SMK KEMBURONGOH" },
-                { title: "Puan", name: "LOURINAH BINTI LAKINSON @ LAKISON", school: "SMK KEMBURONGOH" },
-                { title: "Puan", name: "NORIZAN BINTI HJ. ADAM", school: "SMK KUNDASANG" },
-                { title: "Puan", name: "JECKLIN ISHAK", school: "SMK KUNDASANG" },
-                { title: "Puan", name: "SURIYATI BINTI BARANTIS @ JASLI", school: "SMK KUNDASANG" },
-                { title: "Puan", name: "SITI KAMARIAH BINTI LUSIN", school: "SMK KUNDASANG" },
-                { title: "Encik", name: "ROHININ @ ABDUL MALIK BIN SHAPI", school: "SMK KUNDASANG" },
-                { title: "Encik", name: "JIFFRINE BIN R. JUSTINE", school: "SMK KUNDASANG" },
-                { title: "Puan", name: "YATISAH DUSAIN", school: "SMK KUNDASANG" },
-                { title: "Puan", name: "SUZANNA BINTI SABIRIN", school: "SMK LOHAN" },
-                { title: "Puan", name: "MISAH ADIS", school: "SMK LOHAN" },
-                { title: "Encik", name: "RONNY BIN DUKI @ ROSHDY BIN AHMAD MARZUKI", school: "SMK LOHAN" },
-                { title: "Puan", name: "KAFSAH ABIDIN", school: "SMK LOHAN" },
-                { title: "Encik", name: "RUSLANI BIN ARIFFIN", school: "SMK LOHAN" },
-                { title: "Puan", name: "SOJIDAH WATI OTHMAN", school: "SMK LOHAN" },
-                { title: "Puan", name: "PATIMAH BINTI AWANG KANAK", school: "SMK LOHAN" },
-                { title: "Encik", name: "EYOSS NAING", school: "SMK LOHAN" },
-                { title: "Puan", name: "ASLINDA BT JUWAIT", school: "SMK LOHAN" },
-                { title: "Encik", name: "MOHD. KHAIRY BIN MD. YUSOF", school: "SMK MAT SALLEH" },
-                { title: "Puan", name: "BAITA BINTI GADANA", school: "SMK MAT SALLEH" },
-                { title: "Encik", name: "WALTER ABEL ADIH", school: "SMK MAT SALLEH" },
-                { title: "Encik", name: "PREMMIER TAIN BIN TAIN", school: "SMK MAT SALLEH" },
-                { title: "Puan", name: "NOORIDAH BINTI SABLEE", school: "SMK MAT SALLEH" },
-                { title: "Encik", name: "WATSIMIN BIN SULAIMAN @ WASIMIN", school: "SMK MAT SALLEH" },
-                { title: "CIK", name: "EMALIANA BINTI GAKOU @ NURAMALINA SALLEH", school: "SMK MAT SALLEH" },
-                { title: "Puan", name: "ESMA BINTI FAUZI", school: "SMK MAT SALLEH" },
-                { title: "Encik", name: "MOHD. REDZLAN BIN MOHAMMAD", school: "SMK MAT SALLEH" },
-                { title: "Puan", name: "RAINEH @ RAYNE BINTI BUIK", school: "SMK MAT SALLEH" },
-                { title: "Puan", name: "KASMAH BINTI MUSIN", school: "SMK MAT SALLEH" },
-                { title: "Puan", name: "ROSEWATI BINTI ROSLAN", school: "SMK MAT SALLEH" },
-                { title: "Puan", name: "PRISCILLA AMBROSE", school: "SMK MAT SALLEH" },
-                { title: "Puan", name: "SITIANEH KONOLIS", school: "SMK MATUPANG JAYA" },
-                { title: "Cik", name: "HAMRIANI KARADING", school: "SMK MATUPANG JAYA" },
-                { title: "Encik", name: "REMENZER DAIMUN", school: "SMK MATUPANG JAYA" },
-                { title: "Encik", name: "SANUSI MOHD HAMZAH", school: "SMK MATUPANG JAYA" },
-                { title: "Encik", name: "BONNIE @ JOHN THARCISIUS", school: "SMK MATUPANG JAYA" },
-                { title: "Cik", name: "FIDELIA BIDI", school: "SMK RANAU" },
-                { title: "Encik", name: "SHAFRI KHAN @ROY BIN JABAR KHAN", school: "SMK RANAU" },
-                { title: "Puan", name: "RUJIAH @ RUSINEH BINTI DIAMIN", school: "SMK RANAU" },
-                { title: "Cik", name: "JULIAH @ JOSSI BINTI SEPIKIT", school: "SMK RANAU" },
-                { title: "Puan", name: "ELSIE GABRIEL GUAKIN", school: "SMK RANAU" },
-                { title: "Puan", name: "SITTI RUSITA BINTI MOHD SAIDI @ SAIKI", school: "SMK TIMBUA" },
-                { title: "Puan", name: "NOR HAMIZAH BINTI RUSIAN", school: "SMK TIMBUA" },
-                { title: "Cik", name: "NORHARNIZA BINTI IKIN @ MOSLIN", school: "SMK TIMBUA" },
-                { title: "Encik", name: "ABRAHAM Z. ILYAS", school: "SMK TIMBUA" },
-                { title: "Puan", name: "LILY MUJIN", school: "SMK ULU SUGUT" },
-                { title: "Cik", name: "NUR ILYANI BINTI RAHMAT @ SULAIMAN", school: "SMK ULU SUGUT" },
-                { title: "Puan", name: "ROZELIA JOSEPH SANGAU", school: "SMK ULU SUGUT" },
-                { title: "Puan", name: "ASRINA KAMPISANG", school: "SMK ULU SUGUT" },
-                { title: "Encik", name: "ADZMI BIN TINUS @ BOY", school: "SMK ULU SUGUT" },
-                { title: "Puan", name: "NURUL JANNAH BINTI SAHININ", school: "SMA AL-IRSYADIAH" },
-                { title: "Encik", name: "RUZAINI BIN ROSLI", school: "SMA AL-IRSYADIAH" },
-                { title: "Puan", name: "OOI CHIA CHIA", school: "SJK (C) PAI WEN" },
-                { title: "Cik", name: "CHONG YEE NYUK", school: "SJK (C) PAI WEN" },
-                { title: "Puan", name: "NORLIAH BINTI MOLINKA", school: "SK BADUKAN" },
-                { title: "Encik", name: "JALANIS BIN YUSOP", school: "SK BONGKUD" },
-                { title: "Puan", name: "VELLORINY NAIS", school: "SK BONGKUD" },
-                { title: "Puan", name: "HANIWATI MOEN", school: "SK BUNDU TUHAN" },
-                { title: "Puan", name: "JUPITA @ NONONG DUSIN", school: "SK BUNDU TUHAN" },
-                { title: "Puan", name: "JULIAH BINTI GHANI", school: "SRK DON BOSCO" },
-                { title: "Encik", name: "FREDOLIN LAZARUS", school: "SK GANA-GANA" },
-                { title: "Encik", name: "MOHD SHAHROL KAMAL BIN ZAINOL ABIDIN", school: "SK GUSI" },
-                { title: "Puan", name: "NORHAFIZATON SOLEHAH BINTI AYUB", school: "SK KAINGARAN" },
-                { title: "Encik", name: "HISHAM BIN NASIRI", school: "SK KAINGARAN" },
-                { title: "Puan", name: "NOORHANIM BINTI ABDUL RAHMAN", school: "SK KAMPONG LIBANG" },
-                { title: "Puan", name: "ALLYSIAH UKON", school: "SK KAMPONG LIBANG" },
-                { title: "Puan", name: "MASRINAH BINTI MIRIN", school: "SK KANANAPON" },
-                { title: "Puan", name: "SALVIA DUMAT", school: "SK KANDAWAYON" },
-                { title: "Puan", name: "MARSAILA AH CHONG", school: "SK KANDAWAYON" },
-                { title: "Puan", name: "SITI NORLINAH BINTI JAUDI", school: "SK KARAGASAN" },
-                { title: "Puan", name: "SITI ROSLINEH BINTI SAILIN", school: "SK KARAGASAN" },
-                { title: "Encik", name: "WELTON BALANTING", school: "SK KAULUAN" },
-                { title: "Encik", name: "RACHAEL TAWANG MALUDA", school: "SK KAULUAN" },
-                { title: "Encik", name: "RODNEY JOHN", school: "SK KAWIYAN SUGUT" },
-                { title: "Puan", name: "FLORANCE BINTI SUAH", school: "SK KAWIYAN SUGUT" },
-                { title: "Encik", name: "RESDAM SATUMIN", school: "SK KAWIYAN SUGUT" },
-                { title: "Puan", name: "KAJIAH GUSILI", school: "SK KEMBURONGOH" },
-                { title: "Puan", name: "KHAIRUNISA BINTI KAISING", school: "SK KEMBURONGOH" },
-                { title: "Puan", name: "HASIAH @ HARNIANI BIGUL", school: "SK KEPANGIAN" },
-                { title: "Puan", name: "AMNAH MAISIN", school: "SK KERANAAN" },
-                { title: "Ustazah", name: "ZURAINIH@ZURAINEH BINTI JUKILIN", school: "SK KILIMU" },
-                { title: "Puan", name: "DESICA LEE SIEW CHEN", school: "SK KILIMU" },
-                { title: "Encik", name: "FAZIL BIN MARUJAL", school: "SK KILIMU" },
-                { title: "Puan", name: "WATI BINTI RUBIN", school: "SK KILIMU" },
-                { title: "Puan", name: "ARTINE BINTI MODI", school: "SK KIMONDOU" },
-                { title: "Puan", name: "NOOR HANNY P.N BINTI MUDJIJAT MO", school: "SK KIMONDOU" },
-                { title: "Puan", name: "NANCY @ NOORKAMISAH BINTI YUNIK", school: "SK KINAPULIDAN" },
-                { title: "Puan", name: "ISMAHWATI BINTI NASIRIN", school: "SK KINAPULIDAN" },
-                { title: "Puan", name: "RAPINEH @ROSNEH BINTI SABIN", school: "SK KINASARABAN" },
-                { title: "Encik", name: "PETURUS SOMIDIN", school: "SK KINIRASAN" },
-                { title: "Encik", name: "MOHAMMAD NIEZAM SARININ", school: "SK KIROKOT" },
-                { title: "Puan", name: "HASRINAH BINTI SANIN", school: "SK KITUNTUL" },
-                { title: "Encik", name: "MOHD ALSAH RIZAN BIN MANSOR", school: "SK KUNDASANG" },
-                { title: "Puan", name: "PHILIPPA@ PETRONELLA EGING", school: "SK KUNDASANG" },
-                { title: "Ustazah", name: "HAMIDAH BINTI SILUN", school: "SK KUNDASANG" },
-                { title: "Ustazah", name: "BASIRAH BINTI HASSIM", school: "SK KUNDASANG" },
-                { title: "Puan", name: "HAMRIA BINTI HAMDAN", school: "SK LANGSAT" },
-                { title: "Puan", name: "NUR AINI BTE NANANG", school: "SK LIPASU" },
-                { title: "Encik", name: "PANANDIS JUSTIN", school: "SK LIPASU" },
-                { title: "Encik", name: "EDMOND LADUNI", school: "SK LOHAN" },
-                { title: "Puan", name: "ALIPAH BT.YAAKUB@NOORAZIAH BT.YAKUP.", school: "SK LOHAN" },
-                { title: "Puan", name: "SITI SHAFAWATI BINTI HAMKA DOL", school: "SK LOHAN" },
-                { title: "Puan", name: "NURIDEH KAUWASA", school: "SK LOHAN" },
-                { title: "Encik", name: "SAHIDIN BIN YUSOF", school: "SK LONGUT" },
-                { title: "Encik", name: "FRANCIS JESSIUS", school: "SK MALINSAU" },
-                { title: "Puan", name: "JUSMARY SAMUN", school: "SK MALINSAU" },
-                { title: "Encik", name: "HELDI SUFFHAN BIN SUFFIAN", school: "SK MANGKAPOH" },
-                { title: "Encik", name: "RANDDY PETER DURUNSUK", school: "SK MARAKAU" },
-                { title: "Puan", name: "HIOM BINTI MIRIN", school: "SK MARAKAU" },
-                { title: "Puan", name: "SURAINIE BINTI ZULKIFLI", school: "SK MATUPANG" },
-                { title: "Puan", name: "VERONICA NAMIN", school: "SK MATUPANG" },
-                { title: "Encik", name: "RAHIDI@ABD.RASYID BIN PONGOT@RUSIMAN", school: "SK MATUPANG" },
-                { title: "Puan", name: "ZUKLERAH BINTI CELESTINE", school: "SK MAUKAB" },
-                { title: "Puan", name: "SHIRLEY DUSIP", school: "SK MAUKAB" },
-                { title: "Puan", name: "REJIAH JAMILI", school: "SK MESILOU" },
-                { title: "Encik", name: "KEVIN SURESH A/L GANAKURU", school: "SK MIRURU" },
-                { title: "Puan", name: "JAHINEH @ JULAIDAH BINTI DAIMIN", school: "SK MOHIMBOYON" },
-                { title: "Encik", name: "AFFENDAY BIN LASIMAN", school: "SK NALAPAK" },
-                { title: "Ustazah", name: "NUR FARHAH BINTI MOHD YUSOFF", school: "SK NALAPAK" },
-                { title: "Puan", name: "DAISY BINTI BERMAN", school: "SK NAMPASAN" },
-                { title: "Puan", name: "JUHILIN @ FAIZAH GULAHAI", school: "SK NAPONG" },
-                { title: "Encik", name: "SYAMSIR BIN MOKTAR", school: "SK NARADAN" },
-                { title: "Puan", name: "CELICE BINTI GONDILI", school: "SK NARAWANG" },
-                { title: "Ustaz", name: "MUHAMMAD MUSLIM BIN SUHAIMI", school: "SK NUKAKATAN" },
-                { title: "Puan", name: "RUSINAH GIMBAH", school: "SK NUNUK RAGANG" },
-                { title: "Puan", name: "SYLVIA ABEL", school: "SK PAGINATAN" },
-                { title: "Puan", name: "MASRINIH BINTI MAHALI", school: "SK PAHU HIMBAAN" },
-                { title: "Encik", name: "DAVID DALTON DEMINIS", school: "SK PAUS" },
-                { title: "Cik", name: "NUR RAHIMATUL ADZLINA BINTI MOHD SALLEH", school: "SK PEKAN DUA" },
-                { title: "Puan", name: "SITI SYUHADAH BINTI GAHAMAT", school: "SK PEKAN DUA" },
-                { title: "Puan", name: "NURUL FATHIN BINTI IBRAHIM", school: "SK PEKAN DUA" },
-                { title: "Puan", name: "ROSNITA BINTI SAIR", school: "SK PEKAN DUA" },
-                { title: "Puan", name: "ROSNANIE @ ROSMARRY BT LASIKI", school: "SK PEKAN" },
-                { title: "Encik", name: "RAMDI KARMIN", school: "SK PEKAN" },
-                { title: "Puan", name: "SUIMING @SUZAN BINTI KIU", school: "SK PEKAN" },
-                { title: "Encik", name: "MOHD.ZULKARNAIN BIN HAJI BAJOORI", school: "SK PERANCANGAN" },
-                { title: "Puan", name: "JAILIN SITI BAIZURAH BINTI JASLI", school: "SK PINAUSUK" },
-                { title: "Encik", name: "HIEW YUN CHOI @ FRIDDY FERNADO", school: "SK PINAWANTAI" },
-                { title: "Encik", name: "ZAABA BIN ABDUL GHANI", school: "SK PORING" },
-                { title: "Encik", name: "RATININ @ AMININ BIN JALANI", school: "SK RANDAGONG" },
-                { title: "Puan", name: "LENNY LORINA RAIMON", school: "SK RATAU" },
-                { title: "Encik", name: "ALBINUS JAIMES", school: "SK SAGIBAN" },
-                { title: "Puan", name: "LILY BTE KEINSINGIN", school: "SK SAGINDAI" },
-                { title: "Encik", name: "MASRIN MURIN", school: "SK SRI GABUNGAN" },
-                { title: "Encik", name: "MOHD SYAFIQ SHOLEHAN BIN ABD KARIM", school: "SK ST BENEDICT" },
-                { title: "Encik", name: "JUNIS BIN DENION", school: "SK ST BENEDICT" },
-                { title: "Encik", name: "SAJIRIN SAHAMIN", school: "SK TAGUDON LAMA" },
-                { title: "Encik", name: "BASMIN BIN KORAMAU", school: "SK TAMPIOS" },
-                { title: "Puan", name: "SYLVIA CHRISTOPHER", school: "SK TARAWAS" },
-                { title: "Encik", name: "WASILIN BIN WASLI", school: "SK TIANG" },
-                { title: "Puan", name: "MASINA@MASINAH BINTI PARIDI", school: "SK TIBABAR K9" },
-                { title: "Puan", name: "ROSNEH BINTI SUAMIN", school: "SK TIBABAR K9" },
-                { title: "Puan", name: "MIAH NGINGILON", school: "SK TIBABAR K9" },
-                { title: "Puan", name: "ROSHIDA SALLEHUDDIN", school: "SK TIMBUA" },
-                { title: "Cik", name: "NORAZELA ADZLYN BINTI JALEMENT", school: "SK TIMBUA" },
-                { title: "Ustazah", name: "NUR HANANI BINTI IDRIS", school: "SK TIMBUA" },
-                { title: "Puan", name: "MAZNIE BINTI SANIN", school: "SK TIMBUA" },
-                { title: "Encik", name: "HASNALIZAN BIN ALIAS", school: "SK TINANOM" },
-                { title: "Encik", name: "MUHAMMAD AZIRUL BIN JUMSIN", school: "SK TOBOH" },
-                { title: "Encik", name: "MOHD. FADZIL BIN POLINUH", school: "SK TOGOP DARAT" },
-                { title: "Puan", name: "SITI MILIA@EMMY BINTI GIAK", school: "SK TUNGOU" },
-                { title: "Encik", name: "MOHD EFFENDEE BIN IBRAHIM", school: "SK TUNGOU" },
-                { title: "Encik", name: "ZULHILME BIN MOHAMAD", school: "SK TUDAN" },
-                { title: "Encik", name: "HARRY BIN GOPOG", school: "SK WAANG" }
-            ]},
+                { title: "", name: "NOONJA BIN KI @ NOONJA BIN KEH", school: "PPD RANAU" },
+                { title: "", name: "DR SERIRAMA EDDIE", school: "PPD RANAU" },
+                { title: "", name: "SAFLEH BIN SAPIN", school: "PPD RANAU" },
+                { title: "", name: "RAPEDAH BINTI HASSAN", school: "PPD RANAU" },
+                { title: "", name: "ARNIWANA BINTI AJIMIN", school: "PPD RANAU" },
+                { title: "", name: "ADZRUL JAIN", school: "PTIS RANAU" },
+                { title: "", name: "LEONNA DAIL", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "", name: "MUHAMAD AZIDI BIN BAKAR", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "", name: "NURUL ASMAH BINTI MAHMMUD", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "", name: "SAPRAN BIN OSMAN", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "", name: "ISMAIL BIN JUSOH", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "", name: "FLORIDAH @ FREDERICA BINTI DIRIN", school: "SMK AGAMA MOHAMAD ALI" },
+                { title: "", name: "TOIMING BIN TOMPULING", school: "SMK BUNDU TUHAN" },
+                { title: "", name: "NUR HIDAYU ADZUM BINTI JAMIL", school: "SMK BUNDU TUHAN" },
+                { title: "", name: "JUARRIE MUSIN", school: "SMK BUNDU TUHAN" },
+                { title: "", name: "RAFFDY BIN JAIP", school: "SMK BUNDU TUHAN" },
+                { title: "", name: "CYNTHIA GEORGE", school: "SMK KEMBURONGOH" },
+                { title: "", name: "RESTIPAH BINTI SAIDI", school: "SMK KEMBURONGOH" },
+                { title: "", name: "LOURINAH BINTI LAKINSON @ LAKISON", school: "SMK KEMBURONGOH" },
+                { title: "", name: "NORIZAN BINTI HJ. ADAM", school: "SMK KUNDASANG" },
+                { title: "", name: "JECKLIN ISHAK", school: "SMK KUNDASANG" },
+                { title: "", name: "SURIYATI BINTI BARANTIS @ JASLI", school: "SMK KUNDASANG" },
+                { title: "", name: "SITI KAMARIAH BINTI LUSIN", school: "SMK KUNDASANG" },
+                { title: "", name: "ROHININ @ ABDUL MALIK BIN SHAPI", school: "SMK KUNDASANG" },
+                { title: "", name: "JIFFRINE BIN R. JUSTINE", school: "SMK KUNDASANG" },
+                { title: "", name: "YATISAH DUSAIN", school: "SMK KUNDASANG" },
+                { title: "", name: "SUZANNA BINTI SABIRIN", school: "SMK LOHAN" },
+                { title: "", name: "MISAH ADIS", school: "SMK LOHAN" },
+                { title: "", name: "RONNY BIN DUKI @ ROSHDY BIN AHMAD MARZUKI", school: "SMK LOHAN" },
+                { title: "", name: "KAFSAH ABIDIN", school: "SMK LOHAN" },
+                { title: "", name: "RUSLANI BIN ARIFFIN", school: "SMK LOHAN" },
+                { title: "", name: "SOJIDAH WATI OTHMAN", school: "SMK LOHAN" },
+                { title: "", name: "PATIMAH BINTI AWANG KANAK", school: "SMK LOHAN" },
+                { title: "", name: "EYOSS NAING", school: "SMK LOHAN" },
+                { title: "", name: "ASLINDA BT JUWAIT", school: "SMK LOHAN" },
+                { title: "", name: "MOHD. KHAIRY BIN MD. YUSOF", school: "SMK MAT SALLEH" },
+                { title: "", name: "BAITA BINTI GADANA", school: "SMK MAT SALLEH" },
+                { title: "", name: "WALTER ABEL ADIH", school: "SMK MAT SALLEH" },
+                { title: "", name: "PREMMIER TAIN BIN TAIN", school: "SMK MAT SALLEH" },
+                { title: "", name: "NOORIDAH BINTI SABLEE", school: "SMK MAT SALLEH" },
+                { title: "", name: "WATSIMIN BIN SULAIMAN @ WASIMIN", school: "SMK MAT SALLEH" },
+                { title: "", name: "EMALIANA BINTI GAKOU @ NURAMALINA SALLEH", school: "SMK MAT SALLEH" },
+                { title: "", name: "ESMA BINTI FAUZI", school: "SMK MAT SALLEH" },
+                { title: "", name: "MOHD. REDZLAN BIN MOHAMMAD", school: "SMK MAT SALLEH" },
+                { title: "", name: "RAINEH @ RAYNE BINTI BUIK", school: "SMK MAT SALLEH" },
+                { title: "", name: "KASMAH BINTI MUSIN", school: "SMK MAT SALLEH" },
+                { title: "", name: "ROSEWATI BINTI ROSLAN", school: "SMK MAT SALLEH" },
+                { title: "", name: "PRISCILLA AMBROSE", school: "SMK MAT SALLEH" },
+                { title: "", name: "SITIANEH KONOLIS", school: "SMK MATUPANG JAYA" },
+                { title: "", name: "HAMRIANI KARADING", school: "SMK MATUPANG JAYA" },
+                { title: "", name: "REMENZER DAIMUN", school: "SMK MATUPANG JAYA" },
+                { title: "", name: "SANUSI MOHD HAMZAH", school: "SMK MATUPANG JAYA" },
+                { title: "", name: "BONNIE @ JOHN THARCISIUS", school: "SMK MATUPANG JAYA" },
+                { title: "", name: "FIDELIA BIDI", school: "SMK RANAU" },
+                { title: "", name: "SHAFRI KHAN @ROY BIN JABAR KHAN", school: "SMK RANAU" },
+                { title: "", name: "RUJIAH @ RUSINEH BINTI DIAMIN", school: "SMK RANAU" },
+                { title: "", name: "JULIAH @ JOSSI BINTI SEPIKIT", school: "SMK RANAU" },
+                { title: "", name: "ELSIE GABRIEL GUAKIN", school: "SMK RANAU" },
+                { title: "", name: "SITTI RUSITA BINTI MOHD SAIDI @ SAIKI", school: "SMK TIMBUA" },
+                { title: "", name: "NOR HAMIZAH BINTI RUSIAN", school: "SMK TIMBUA" },
+                { title: "", name: "NORHARNIZA BINTI IKIN @ MOSLIN", school: "SMK TIMBUA" },
+                { title: "", name: "ABRAHAM Z. ILYAS", school: "SMK TIMBUA" },
+                { title: "", name: "LILY MUJIN", school: "SMK ULU SUGUT" },
+                { title: "", name: "NUR ILYANI BINTI RAHMAT @ SULAIMAN", school: "SMK ULU SUGUT" },
+                { title: "", name: "ROZELIA JOSEPH SANGAU", school: "SMK ULU SUGUT" },
+                { title: "", name: "ASRINA KAMPISANG", school: "SMK ULU SUGUT" },
+                { title: "", name: "ADZMI BIN TINUS @ BOY", school: "SMK ULU SUGUT" },
+                { title: "", name: "NURUL JANNAH BINTI SAHININ", school: "SMA AL-IRSYADIAH" },
+                { title: "", name: "RUZAINI BIN ROSLI", school: "SMA AL-IRSYADIAH" },
+                { title: "", name: "OOI CHIA CHIA", school: "SJK (C) PAI WEN" },
+                { title: "", name: "CHONG YEE NYUK", school: "SJK (C) PAI WEN" },
+                { title: "", name: "NORLIAH BINTI MOLINKA", school: "SK BADUKAN" },
+                { title: "", name: "JALANIS BIN YUSOP", school: "SK BONGKUD" },
+                { title: "", name: "VELLORINY NAIS", school: "SK BONGKUD" },
+                { title: "", name: "HANIWATI MOEN", school: "SK BUNDU TUHAN" },
+                { title: "", name: "JUPITA @ NONONG DUSIN", school: "SK BUNDU TUHAN" },
+                { title: "", name: "JULIAH BINTI GHANI", school: "SRK DON BOSCO" },
+                { title: "", name: "FREDOLIN LAZARUS", school: "SK GANA-GANA" },
+                { title: "", name: "MOHD SHAHROL KAMAL BIN ZAINOL ABIDIN", school: "SK GUSI" },
+                { title: "", name: "NORHAFIZATON SOLEHAH BINTI AYUB", school: "SK KAINGARAN" },
+                { title: "", name: "HISHAM BIN NASIRI", school: "SK KAINGARAN" },
+                { title: "", name: "NOORHANIM BINTI ABDUL RAHMAN", school: "SK KAMPONG LIBANG" },
+                { title: "", name: "ALLYSIAH UKON", school: "SK KAMPONG LIBANG" },
+                { title: "", name: "MASRINAH BINTI MIRIN", school: "SK KANANAPON" },
+                { title: "", name: "SALVIA DUMAT", school: "SK KANDAWAYON" },
+                { title: "", name: "MARSAILA AH CHONG", school: "SK KANDAWAYON" },
+                { title: "", name: "SITI NORLINAH BINTI JAUDI", school: "SK KARAGASAN" },
+                { title: "", name: "SITI ROSLINEH BINTI SAILIN", school: "SK KARAGASAN" },
+                { title: "", name: "WELTON BALANTING", school: "SK KAULUAN" },
+                { title: "", name: "RACHAEL TAWANG MALUDA", school: "SK KAULUAN" },
+                { title: "", name: "RODNEY JOHN", school: "SK KAWIYAN SUGUT" },
+                { title: "", name: "FLORANCE BINTI SUAH", school: "SK KAWIYAN SUGUT" },
+                { title: "", name: "RESDAM SATUMIN", school: "SK KAWIYAN SUGUT" },
+                { title: "", name: "KAJIAH GUSILI", school: "SK KEMBURONGOH" },
+                { title: "", name: "KHAIRUNISA BINTI KAISING", school: "SK KEMBURONGOH" },
+                { title: "", name: "HASIAH @ HARNIANI BIGUL", school: "SK KEPANGIAN" },
+                { title: "", name: "AMNAH MAISIN", school: "SK KERANAAN" },
+                { title: "", name: "ZURAINIH@ZURAINEH BINTI JUKILIN", school: "SK KILIMU" },
+                { title: "", name: "DESICA LEE SIEW CHEN", school: "SK KILIMU" },
+                { title: "", name: "FAZIL BIN MARUJAL", school: "SK KILIMU" },
+                { title: "", name: "WATI BINTI RUBIN", school: "SK KILIMU" },
+                { title: "", name: "ARTINE BINTI MODI", school: "SK KIMONDOU" },
+                { title: "", name: "NOOR HANNY P.N BINTI MUDJIJAT MO", school: "SK KIMONDOU" },
+                { title: "", name: "NANCY @ NOORKAMISAH BINTI YUNIK", school: "SK KINAPULIDAN" },
+                { title: "", name: "ISMAHWATI BINTI NASIRIN", school: "SK KINAPULIDAN" },
+                { title: "", name: "RAPINEH @ROSNEH BINTI SABIN", school: "SK KINASARABAN" },
+                { title: "", name: "PETURUS SOMIDIN", school: "SK KINIRASAN" },
+                { title: "", name: "MOHAMMAD NIEZAM SARININ", school: "SK KIROKOT" },
+                { title: "", name: "HASRINAH BINTI SANIN", school: "SK KITUNTUL" },
+                { title: "", name: "MOHD ALSAH RIZAN BIN MANSOR", school: "SK KUNDASANG" },
+                { title: "", name: "PHILIPPA@ PETRONELLA EGING", school: "SK KUNDASANG" },
+                { title: "", name: "HAMIDAH BINTI SILUN", school: "SK KUNDASANG" },
+                { title: "", name: "BASIRAH BINTI HASSIM", school: "SK KUNDASANG" },
+                { title: "", name: "HAMRIA BINTI HAMDAN", school: "SK LANGSAT" },
+                { title: "", name: "NUR AINI BTE NANANG", school: "SK LIPASU" },
+                { title: "", name: "PANANDIS JUSTIN", school: "SK LIPASU" },
+                { title: "", name: "EDMOND LADUNI", school: "SK LOHAN" },
+                { title: "", name: "ALIPAH BT.YAAKUB@NOORAZIAH BT.YAKUP.", school: "SK LOHAN" },
+                { title: "", name: "SITI SHAFAWATI BINTI HAMKA DOL", school: "SK LOHAN" },
+                { title: "", name: "NURIDEH KAUWASA", school: "SK LOHAN" },
+                { title: "", name: "SAHIDIN BIN YUSOF", school: "SK LONGUT" },
+                { title: "", name: "FRANCIS JESSIUS", school: "SK MALINSAU" },
+                { title: "", name: "JUSMARY SAMUN", school: "SK MALINSAU" },
+                { title: "", name: "HELDI SUFFHAN BIN SUFFIAN", school: "SK MANGKAPOH" },
+                { title: "", name: "RANDDY PETER DURUNSUK", school: "SK MARAKAU" },
+                { title: "", name: "HIOM BINTI MIRIN", school: "SK MARAKAU" },
+                { title: "", name: "SURAINIE BINTI ZULKIFLI", school: "SK MATUPANG" },
+                { title: "", name: "VERONICA NAMIN", school: "SK MATUPANG" },
+                { title: "", name: "RAHIDI@ABD.RASYID BIN PONGOT@RUSIMAN", school: "SK MATUPANG" },
+                { title: "", name: "ZUKLERAH BINTI CELESTINE", school: "SK MAUKAB" },
+                { title: "", name: "SHIRLEY DUSIP", school: "SK MAUKAB" },
+                { title: "", name: "REJIAH JAMILI", school: "SK MESILOU" },
+                { title: "", name: "KEVIN SURESH A/L GANAKURU", school: "SK MIRURU" },
+                { title: "", name: "JAHINEH @ JULAIDAH BINTI DAIMIN", school: "SK MOHIMBOYON" },
+                { title: "", name: "AFFENDAY BIN LASIMAN", school: "SK NALAPAK" },
+                { title: "", name: "NUR FARHAH BINTI MOHD YUSOFF", school: "SK NALAPAK" },
+                { title: "", name: "DAISY BINTI BERMAN", school: "SK NAMPASAN" },
+                { title: "", name: "JUHILIN @ FAIZAH GULAHAI", school: "SK NAPONG" },
+                { title: "", name: "SYAMSIR BIN MOKTAR", school: "SK NARADAN" },
+                { title: "", name: "CELICE BINTI GONDILI", school: "SK NARAWANG" },
+                { title: "", name: "MUHAMMAD MUSLIM BIN SUHAIMI", school: "SK NUKAKATAN" },
+                { title: "", name: "RUSINAH GIMBAH", school: "SK NUNUK RAGANG" },
+                { title: "", name: "SYLVIA ABEL", school: "SK PAGINATAN" },
+                { title: "", name: "MASRINIH BINTI MAHALI", school: "SK PAHU HIMBAAN" },
+                { title: "", name: "DAVID DALTON DEMINIS", school: "SK PAUS" },
+                { title: "", name: "NUR RAHIMATUL ADZLINA BINTI MOHD SALLEH", school: "SK PEKAN DUA" },
+                { title: "", name: "SITI SYUHADAH BINTI GAHAMAT", school: "SK PEKAN DUA" },
+                { title: "", name: "NURUL FATHIN BINTI IBRAHIM", school: "SK PEKAN DUA" },
+                { title: "", name: "ROSNITA BINTI SAIR", school: "SK PEKAN DUA" },
+                { title: "", name: "ROSNANIE @ ROSMARRY BT LASIKI", school: "SK PEKAN" },
+                { title: "", name: "RAMDI KARMIN", school: "SK PEKAN" },
+                { title: "", name: "SUIMING @SUZAN BINTI KIU", school: "SK PEKAN" },
+                { title: "", name: "MOHD.ZULKARNAIN BIN HAJI BAJOORI", school: "SK PERANCANGAN" },
+                { title: "", name: "JAILIN SITI BAIZURAH BINTI JASLI", school: "SK PINAUSUK" },
+                { title: "", name: "HIEW YUN CHOI @ FRIDDY FERNADO", school: "SK PINAWANTAI" },
+                { title: "", name: "ZAABA BIN ABDUL GHANI", school: "SK PORING" },
+                { title: "", name: "RATININ @ AMININ BIN JALANI", school: "SK RANDAGONG" },
+                { title: "", name: "LENNY LORINA RAIMON", school: "SK RATAU" },
+                { title: "", name: "ALBINUS JAIMES", school: "SK SAGIBAN" },
+                { title: "", name: "LILY BTE KEINSINGIN", school: "SK SAGINDAI" },
+                { title: "", name: "MASRIN MURIN", school: "SK SRI GABUNGAN" },
+                { title: "", name: "MOHD SYAFIQ SHOLEHAN BIN ABD KARIM", school: "SK ST BENEDICT" },
+                { title: "", name: "JUNIS BIN DENION", school: "SK ST BENEDICT" },
+                { title: "", name: "SAJIRIN SAHAMIN", school: "SK TAGUDON LAMA" },
+                { title: "", name: "BASMIN BIN KORAMAU", school: "SK TAMPIOS" },
+                { title: "", name: "SYLVIA CHRISTOPHER", school: "SK TARAWAS" },
+                { title: "", name: "WASILIN BIN WASLI", school: "SK TIANG" },
+                { title: "", name: "MASINA@MASINAH BINTI PARIDI", school: "SK TIBABAR K9" },
+                { title: "", name: "ROSNEH BINTI SUAMIN", school: "SK TIBABAR K9" },
+                { title: "", name: "MIAH NGINGILON", school: "SK TIBABAR K9" },
+                { title: "", name: "ROSHIDA SALLEHUDDIN", school: "SK TIMBUA" },
+                { title: "", name: "NORAZELA ADZLYN BINTI JALEMENT", school: "SK TIMBUA" },
+                { title: "", name: "NUR HANANI BINTI IDRIS", school: "SK TIMBUA" },
+                { title: "", name: "MAZNIE BINTI SANIN", school: "SK TIMBUA" },
+                { title: "", name: "HASNALIZAN BIN ALIAS", school: "SK TINANOM" },
+                { title: "", name: "MUHAMMAD AZIRUL BIN JUMSIN", school: "SK TOBOH" },
+                { title: "", name: "MOHD. FADZIL BIN POLINUH", school: "SK TOGOP DARAT" },
+                { title: "", name: "SITI MILIA@EMMY BINTI GIAK", school: "SK TUNGOU" },
+                { title: "", name: "MOHD EFFENDEE BIN IBRAHIM", school: "SK TUNGOU" },
+                { title: "", name: "ZULHILME BIN MOHAMAD", school: "SK TUDAN" },
+                { title: "", name: "HARRY BIN GOPOG", school: "SK WAANG" }
+            ] },
 
-            // MEKAR
-            { 
-                category: "MEKAR", 
-                title: "Anugerah MEKAR Utama (Sekolah Rendah & Menengah)", 
+            // MEKAR (INSTITUSI)
+            {
+                category: "MEKAR (INSTITUSI)",
+                title: "Anugerah MEKAR Utama",
                 recipients: [
-                    { title: "Pengetua Sekolah Rendah", name: "MOHD HAFIZ STEPHEN BIN ABDULLAH", school: "SK TONGOU (Kepimpinan Instruksional)" },
-                    { title: "Pengetua Sekolah Menengah", name: "JAPIT TIMBANGAN", school: "SMK KEMBURONGOH (Kepimpinan Instruksional)" },
-                    { title: "Anugerah MEKAR Utama SM", name: "PUAN ZURAIDAH BINTI HAMDIN", school: "SMA AL IRSYADIAH (STPM / SPM / PBD)" },
-                    { title: "Anugerah MEKAR Utama SR", name: "PUAN IVY BINTI SAPIUN @ PATRICK", school: "SRK DON BOSCO (PBD Gred A/B/SKM)" }
-                ] 
+                    { title: "Encik", name: "MOHD HAFIZ STEPHEN BIN ABDULLAH", school: "SK TONGOU (Kepimpinan Instruksional – Guru Besar Sekolah Rendah)" },
+                    { title: "Encik", name: "JAPIT TIMBANGAN", school: "SMK KEMBURONGOH (Kepimpinan Instruksional – Pengetua Sekolah Menengah)" },
+                    { title: "", name: "SMA AL IRSYADIAH", school: "Anugerah MEKAR Utama (Sekolah Menengah)" },
+                    { title: "", name: "SK DON BOSCO", school: "Anugerah MEKAR Utama (Sekolah Rendah)" }
+                ]
             },
-            { 
-                category: "MEKAR", 
-                title: "Pencapaian SPM 2025 Cemerlang & Lonjakan GPS", 
+            {
+                category: "MEKAR (INSTITUSI)",
+                title: "Pengurusan PIBG Cemerlang",
                 recipients: [
-                    { title: "GPS Cemerlang <150 Calon", name: "SMA AL IRSYADIAH", school: "Pencapaian GPS Cemerlang SPM" },
-                    { title: "Lonjakan GPS <150 Calon", name: "SMA AL IRSYADIAH", school: "Lonjakan GPS Cemerlang SPM" },
-                    { title: "100% LMS", name: "SMA AL IRSYADIAH", school: "Lulus 100% Semua Mata Pelajaran" },
-                    { title: "TOPAZ 5 Tahun", name: "SMA AL IRSYADIAH", school: "100% LMS 5 Tahun Berturut-turut" },
-                    { title: "GPS Cemerlang 151-250 Calon", name: "SMK RANAU", school: "Pencapaian GPS Cemerlang SPM" },
-                    { title: "Lonjakan GPS 151-250 Calon", name: "SMK RANAU", school: "Lonjakan GPS Cemerlang SPM" },
-                    { title: "GPS Cemerlang >251 Calon", name: "SMK MAT SALLEH", school: "Pencapaian GPS Cemerlang SPM" },
-                    { title: "Lonjakan GPS >251 Calon", name: "SMK MAT SALLEH", school: "Lonjakan GPS Cemerlang SPM" },
-                    { title: "100% LMS", name: "SMK AGAMA MOHAMAD ALI", school: "Lulus 100% Semua Mata Pelajaran" },
-                    { title: "100% LMS", name: "SMK TIMBUA", school: "Lulus 100% Semua Mata Pelajaran" }
-                ] 
+                    { title: "", name: "SMK MATUPANG JAYA", school: "PIBG Cemerlang" },
+                    { title: "", name: "SMK LOHAN", school: "PIBG Cemerlang" },
+                    { title: "", name: "SK MARAKAU", school: "PIBG Cemerlang" },
+                    { title: "", name: "SK KILIMU", school: "PIBG Cemerlang" },
+                    { title: "", name: "SK KERANAAN", school: "PIBG Cemerlang" }
+                ]
             },
-            { 
-                category: "MEKAR", 
-                title: "Pencapaian STPM 2025 Cemerlang & BERLIAN", 
+            {
+                category: "MEKAR (INSTITUSI)",
+                title: "Pencapaian Institusi / Sekolah (Akademik & MEKAR)",
                 recipients: [
-                    { title: "STPM BERLIAN 6 Tahun", name: "SMK AGAMA MOHAMAD ALI", school: "Lulus 100% STPM 6 Tahun Berturut-turut" },
-                    { title: "Sekolah Lulus 100%", name: "SMK AGAMA MOHAMAD ALI", school: "Lulus 100% STPM" },
-                    { title: "PNGK Cemerlang <50 Calon", name: "SMK AGAMA MOHAMAD ALI", school: "PNGK Cemerlang STPM" },
-                    { title: "PNGK Cemerlang 51-100 Calon", name: "SMK KUNDASANG", school: "PNGK Cemerlang STPM" },
-                    { title: "PNGK Cemerlang >101 Calon", name: "SMK MAT SALLEH", school: "PNGK Cemerlang STPM" }
-                ] 
+                    { title: "", name: "SJK(C) PAI WEN", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. KBAT (EMAS) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 4. 10 MURID PALING TINGGI REKOD AINS | 5. ANUGERAH MEKAR 2025 (SEKOLAH RENDAH)" },
+                    { title: "", name: "SK BADUKAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK BONGKUD", school: "1. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK BUNDU TUHAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK DON BOSCO", school: "1. SEGAK | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 3. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 4. PENCAPAIAN PBD CEMERLANG (EMAS) | 5. 10 MURID PALING TINGGI REKOD AINS | 6. PELESTARIAN TS25 (KOHOT 3,5 & 6) | 7. 10 MURID PALING TINGGI REKOD AINS" },
+                    { title: "", name: "SK GANA-GANA", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK GUSI", school: "1. PENCAPAIAN PBD CEMERLANG (PERAK) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK KAINGARAN", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK KAMPONG LIBANG", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. KBAT (EMAS) | 4. PENCAPAIAN HIP TERBAIK" },
+                    { title: "", name: "SK KANANAPON", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%)" },
+                    { title: "", name: "SK KANDAWAYON", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK KARAGASAN", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK KAULUAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS) | 4. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK KAWIYAN SUGUT", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK KEMBURONGOH", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK KEPANGIAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK KERANAAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS) | 4. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%)" },
+                    { title: "", name: "SK KILIMU", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. KBAT (EMAS) | 4. PUSAT SUMBER" },
+                    { title: "", name: "SK KIMONDOU", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK KINAPULIDAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK KINASARABAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH RENDAH KHATAM AL-QURAN MURID TAHUN 6 100% | 3. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 4. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK KINIRASAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK KIROKOT", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK KITUNTUL", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. KBAT (PLATINUM)" },
+                    { title: "", name: "SK KUNDASANG", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK LANGSAT", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK LIPASU", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. KBAT (EMAS)" },
+                    { title: "", name: "SK LOHAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. PRO AKTIF TS25 (KOHOT 7&8)" },
+                    { title: "", name: "SK LONGUT", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK MALINSAU", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK MANGKAPOH", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK MARAKAU", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK MATUPANG", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK MAUKAB", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 3. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 4. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK MESILOU", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. 10 MURID PALING TINGGI REKOD AINS" },
+                    { title: "", name: "SK MIRURU", school: "1. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 4. KO-KURIKULUM PENDIDIKAN KHAS" },
+                    { title: "", name: "SK MOHIMBOYON", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK NALAPAK", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK NAMPASAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 3. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 4. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK NAPONG", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. KBAT (EMAS)" },
+                    { title: "", name: "SK NARADAN (NAWANON)", school: "1. SEKOLAH PENGGUNA DELIMA AKTIF | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK NARAWANG", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK NUKAKATAN", school: "1. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK NUNUK RAGANG", school: "1. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK PAGINATAN", school: "1. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK PAHU HIMBAAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK PAUS", school: "1. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK PEKAN DUA", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. KBAT (EMAS) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 4. PENGURUSAN RPI CEMERLANG" },
+                    { title: "", name: "SK PEKAN RANAU", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK PERANCANGAN", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS) | 4. 10 MURID PALING TINGGI REKOD AINS" },
+                    { title: "", name: "SK PINAUSUK", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK PINAWANTAI RANAU", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. PENCAPAIAN PRASEKOLAH CEMERLANG" },
+                    { title: "", name: "SK PORING", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. KBAT (EMAS)" },
+                    { title: "", name: "SK RANDAGONG", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS) | 4. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%)" },
+                    { title: "", name: "SK RATAU", school: "1. TVET (PBL RBT) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 4. PENCAPAIAN SEKOLAH RENDAH KHATAM AL-QURAN MURID TAHUN 6 100% | 5. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 6. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK SAGIBAN", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK SAGINDAI", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK SRI GABUNGAN", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK ST. BENEDICT", school: "1. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 2. KBAT (EMAS) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK TAGUDON LAMA", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 3. PENCAPAIAN SEKOLAH RENDAH KHATAM AL-QURAN MURID TAHUN 6 100% | 4. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 5. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK TAMPIOS", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK TARAWAS", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK TIANG", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK TIBABAR KOMPREHENSIF 9", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS) | 4. KBAT (EMAS) | 5. SEKOLAH PENGGUNA DELIMA AKTIF | 6. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK TIMBUA", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. STEM (PERINGKAT ANTARABANGSA/KEBANGSAAAN/NEGERI) | 4. INOVASI PENDIDIKAN KHAS" },
+                    { title: "", name: "SK TINANOM", school: "1. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN)" },
+                    { title: "", name: "SK TOBOH", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK TOGOP DARAT", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK TUDAN", school: "1. TVET (PBL RBT) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 3. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 4. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SK TUNGOU", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 2 - TAHUN 6 (100%) | 2. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 3. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 4. PENCAPAIAN PBD CEMERLANG (EMAS) | 5. KEPIMPINAN INSTRUKSIONAL SEKOLAH RENDAH 2026 - GURU BESAR" },
+                    { title: "", name: "SK WAANG", school: "1. PENCAPAIAN PEMULIHAN KHAS MURID TAHUN 6 (MENCAPAI KPI JPN) | 2. PENCAPAIAN SEKOLAH MODEL AL-QURAN MURID TAHUN 6 (100%) | 3. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SMA AL-IRSYADIAH MARAKAU", school: "1. PENCAPAIAN SPM (100% LMS) | 2. ANUGERAH MEKAR 2025 (SM - STPM/SPM/PBD) | 3. PENCAPAIAN SPM TOPAZ (100% 5 TAHUN BERTURUT-TURUT) | 4. PENCAPAIAN SPM LONJAKAN CEMERLANG GPS (CALON 150 DAN KE BAWAH) | 5. PENCAPAIAN SPM GPS CEMERLANG (CALON 150 DAN KE BAWAH) | 6. SEKOLAH PENGGUNA DELIMA AKTIF | 7. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SMK AGAMA MOHAMAD ALI", school: "1. PENCAPAIAN SPM (100% LMS) | 2. PENCAPAIAN STPM (SEKOLAH LULUS 100%) | 3. PENCAPAIAN STPM (PNGK CEMERLANG - CALON BAWAH 50) | 4. PENCAPAIAN STPM BERLIAN (SEKOLAH LULUS 100% 6 TAHUN BERTURUT-TURUT) | 5. STEM PENINGKATAN ENROLMEN | 6. PENCAPAIAN PBD CEMERLANG (EMAS)" },
+                    { title: "", name: "SMK BUNDU TUHAN", school: "1. ANUGERAH TVET (OPSSRT) | 2. STEM ENROLMEN TERTINGGI | 3. PENCAPAIAN PBD CEMERLANG (EMAS) | 4. 10 MURID PALING TINGGI REKOD AINS" },
+                    { title: "", name: "SMK KEMBURONGOH", school: "1. PENCAPAIAN HIP TERBAIK | 2. KEPIMPINAN INSTRUKSIONAL SEKOLAH MENENGAH 2026 - PENGETUA | 3. PENCAPAIAN PBD CEMERLANG (EMAS) | 4. 10 MURID PALING TINGGI REKOD AINS" },
+                    { title: "", name: "SMK KUNDASANG", school: "1. PENCAPAIAN PBD CEMERLANG (PERAK) | 2. KBAT (EMAS) | 3. PRO AKTIF TS25 (KOHOT 7&8) | 4. INOVASI PENDIDIKAN KHAS | 5. PENCAPAIAN STPM (PNGK CEMERLANG - CALON 51 HINGGA 100)" },
+                    { title: "", name: "SMK LOHAN", school: "1. ANUGERAH TVET (OPSSRT) | 2. PENCAPAIAN PBD CEMERLANG (EMAS) | 3. KBAT (EMAS) | 4. PENCAPAIAN HIP TERBAIK | 5. PUSAT SUMBER | 6. 10 MURID PALING TINGGI REKOD AINS | 7. PENCAPAIAN HIP TERBAIK | 8. PELESTARIAN TS25 (KOHOT 3,5 & 6)" },
+                    { title: "", name: "SMK MAT SALLEH", school: "1. SEGAK | 2. PENCAPAIAN SPM LONJAKAN CEMERLANG GPS (CALON 251 DAN KE ATAS) | 3. PENCAPAIAN SPM GPS CEMERLANG (CALON 251 DAN KE ATAS) | 4. PENCAPAIAN STPM (PNGK CEMERLANG - CALON 101 DAN KE ATAS) | 5. PENGURUSAN RPI CEMERLANG | 6. PENCAPAIAN PBD CEMERLANG (EMAS) | 7. 10 MURID PALING TINGGI REKOD AINS" },
+                    { title: "", name: "SMK MATUPANG JAYA", school: "1. PENCAPAIAN PBD CEMERLANG (PERAK) | 2. KO-KURIKULUM PENDIDIKAN KHAS" },
+                    { title: "", name: "SMK RANAU", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. KBAT (EMAS) | 3. PENCAPAIAN SPM LONJAKAN CEMERLANG GPS (CALON 151 HINGGA 250) | 4. PENCAPAIAN SPM GPS CEMERLANG (CALON 151 HINGGA 250)" },
+                    { title: "", name: "SMK TIMBUA", school: "1. PENCAPAIAN PBD CEMERLANG (EMAS) | 2. KBAT (EMAS) | 3. PENCAPAIAN SPM (100% LMS)" },
+                    { title: "", name: "SMK ULU SUGUT (MALINSAU)", school: "1. PENCAPAIAN PBD CEMERLANG (GANGSA) | 2. STEM (PERINGKAT ANTARABANGSA/KEBANGSAAAN/NEGERI)" }
+                ]
             },
-            { 
-                category: "MEKAR", 
-                title: "10 Murid Paling Tinggi Rekod AINS (SR & SM)", 
-                recipients: [
-                    { title: "Murid", name: "AARIZ AMJAD BIN MOHAMMAD HAMZAH", school: "SJK(C) PAI WEN" },
-                    { title: "Murid", name: "GADRIEL GLENNSTON CARL KUNG", school: "SJK(C) PAI WEN" },
-                    { title: "Murid", name: "GADRIELLA GWENNEVIE CARLA KUNG", school: "SJK(C) PAI WEN" },
-                    { title: "Murid", name: "JANE YVANNESA FREDERIC", school: "SJK(C) PAI WEN" },
-                    { title: "Murid", name: "AARAHI OSIENDA HILMEY", school: "SK MESILOU" },
-                    { title: "Murid", name: "ALVICKER WISLEY", school: "SK PERANCANGAN" },
-                    { title: "Murid", name: "ERICMAX EIDEN ENDYFEB", school: "SRK DON BOSCO" },
-                    { title: "Murid", name: "FREENY AELLY EYUMMI FREENDY", school: "SRK DON BOSCO" },
-                    { title: "Murid", name: "OLIVER OSTERN FREDOLINE", school: "SRK DON BOSCO" },
-                    { title: "Murid", name: "SARAH OTHILIA ROBERT", school: "SRK DON BOSCO" },
-                    { title: "Murid", name: "ANNABELLE GEOFFREY", school: "SMK BUNDU TUHAN" },
-                    { title: "Murid", name: "CARLA RAVENA CLARENCE", school: "SMK BUNDU TUHAN" },
-                    { title: "Murid", name: "SHERNIE NICHOLE VINCENT", school: "SMK BUNDU TUHAN" },
-                    { title: "Murid", name: "MOHAMAD ZAMRY BIN JUSNIN", school: "SMK KEMBURONGOH" },
-                    { title: "Murid", name: "NUR FARISYA ADRIANA BINTI WASILIN", school: "SMK KEMBURONGOH" },
-                    { title: "Murid", name: "DANESH ANEQ BIN YANCE", school: "SMK LOHAN" },
-                    { title: "Murid", name: "CARLYNN YVONNE WARNER", school: "SMK MAT SALLEH" },
-                    { title: "Murid", name: "FRENDY RITZ BERRY TALIBAN", school: "SMK MAT SALLEH" },
-                    { title: "Murid", name: "HAVENLY EMVAWA ANAK BOSS", school: "SMK MAT SALLEH" },
-                    { title: "Murid", name: "MUHAMMAD IMAN HAZIQ BIN MOHAMMAD HAMZAH", school: "SMK MAT SALLEH" }
-                ] 
-            },
-            { 
-                category: "MEKAR", 
-                title: "Anugerah TVET & Inovasi RBT", 
-                recipients: [
-                    { title: "Puan", name: "LENNY LORINA RAIMON", school: "SK RATAU (TVET PBL RBT SR)" },
-                    { title: "Encik", name: "ZULHILME BIN MOHAMAD", school: "SK TUDAN (TVET PBL RBT SR)" },
-                    { title: "Puan", name: "MIYAH @ WINIE BINTI UBOK", school: "SMK LOHAN (TVET OPSSRT SM)" },
-                    { title: "Puan", name: "NUR HIDAYU ADZUM BINTI JAMIL", school: "SMK BUNDU TUHAN (SM: TVET OPSSRT)" }
-                ] 
-            },
+
+            // MEKAR (INDIVIDU)
+            { category: "MEKAR (INDIVIDU)", title: "Anugerah TVET", recipients: [
+                { title: "", name: "LENNY LORINA RAIMON", school: "SK RATAU (SR: TVET (PBL RBT) - A/B/SKM)" },
+                { title: "", name: "ZULHILME BIN MOHAMAD", school: "SK TUDAN (SR: TVET (PBL RBT) - A/B/SKM)" },
+                { title: "", name: "MIYAH @ WINIE BINTI UBOK", school: "SMK LOHAN (SM: TVET (OPSSRT))" },
+                { title: "", name: "NUR HIDAYU ADZUM BINTI JAMIL", school: "SMK BUNDU TUHAN (SM: TVET (OPSSRT))" }
+            ] },
+            { category: "MEKAR (INDIVIDU)", title: "10 Murid Paling Tinggi Rekod AINS", recipients: [
+                { title: "", name: "AARIZ AMJAD BIN MOHAMMAD HAMZAH", school: "SJK(C) PAI WEN (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "GADRIEL GLENNSTON CARL KUNG", school: "SJK(C) PAI WEN (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "GADRIELLA GWENNEVIE CARLA KUNG", school: "SJK(C) PAI WEN (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "JANE YVANNESA FREDERIC", school: "SJK(C) PAI WEN (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "AARAHI OSIENDA HILMEY", school: "SK MESILOU (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "ALVICKER WISLEY", school: "SK PERANCANGAN (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "ERICMAX EIDEN ENDYFEB", school: "SRK DON BOSCO (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "FREENY AELLY EYUMMI FREENDY", school: "SRK DON BOSCO (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "OLIVER OSTERN FREDOLINE", school: "SRK DON BOSCO (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "SARAH OTHILIA ROBERT", school: "SRK DON BOSCO (SR: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "ANNABELLE GEOFFREY", school: "SMK BUNDU TUHAN (SM: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "CARLA RAVENA CLARENCE", school: "SMK BUNDU TUHAN (SM: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "SHERNIE NICHOLE VINCENT", school: "SMK BUNDU TUHAN (SM: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "MOHAMAD ZAMRY BIN JUSNIN", school: "SMK KEMBURONGOH (SM: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "NUR FARISYA ADRIANA BINTI WASILIN", school: "SMK KEMBURONGOH (SM: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "DANESH ANEQ BIN YANCE", school: "SMK LOHAN (SM: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "CARLYNN YVONNE WARNER", school: "SMK MAT SALLEH (SM: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "FRENDY RITZ BERRY TALIBAN", school: "SMK MAT SALLEH (SM: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "HAVENLY EMVAWA ANAK BOSS", school: "SMK MAT SALLEH (SM: 10 Murid Paling Tinggi Rekod AINS)" },
+                { title: "", name: "MUHAMMAD IMAN HAZIQ BIN MOHAMMAD HAMZAH", school: "SMK MAT SALLEH (SM: 10 Murid Paling Tinggi Rekod AINS)" }
+            ] },
+            { category: "MEKAR (INDIVIDU)", title: "KoKum Guru Cemerlang", recipients: [
+                { title: "", name: "SABDALI BIN BESARI", school: "SK TIBABAR K9 (KoKum Guru: Pengurusan Cemerlang SR)" },
+                { title: "", name: "RAMDY JAIMIS", school: "SMK MAT SALLEH (KoKum Guru: PT Kesenian Cemerlang SM)" },
+                { title: "", name: "ELLY EZRA SAIMIN", school: "SK ST BENEDICT (KoKum Guru: PT Kesenian Cemerlang SR)" },
+                { title: "", name: "NABIHAH INSYIRAH BINTI MOHD ILHAM", school: "SMA AL IRSYADIAH (KoKum Guru: PT MBMMBI Cemerlang SM)" },
+                { title: "", name: "AVELLA ANDAU", school: "SK TOBOH (KoKum Guru: PT MBMMBI Cemerlang SR)" },
+                { title: "", name: "ADRIANYSIA FRANCIS", school: "SMK KUNDASANG (KoKum Guru: PT STEM Cemerlang SM)" },
+                { title: "", name: "ELVIVIEN JUANNIS", school: "SK NAPONG (KoKum Guru: PT STEM Cemerlang SR)" },
+                { title: "", name: "NORMALA BINTI SALLEH", school: "SK PEKAN (KoKum Guru: TKRS Cemerlang SR)" }
+            ] },
+            { category: "MEKAR (INDIVIDU)", title: "KoKum Murid Cemerlang", recipients: [
+                { title: "", name: "DARYL DAVE DARWIN", school: "SMK LOHAN (KoKum Murid: Cemerlang Lelaki SM)" },
+                { title: "", name: "TAN HOLLIS", school: "SJK(C) PAI WEN (KoKum Murid: Cemerlang Lelaki SR)" },
+                { title: "", name: "NURUL SYAZWANI QISTINA BINTI MUHAMMAD AMIN", school: "SMKA MOHAMAD ALI (KoKum Murid: Cemerlang Perempuan SM)" },
+                { title: "", name: "QISTINA IZZ ZARA BINTI ROBLIN", school: "SK RANDAGONG (KoKum Murid: Cemerlang Perempuan SR)" }
+            ] },
+            { category: "MEKAR (INDIVIDU)", title: "Sukan Guru Cemerlang", recipients: [
+                { title: "", name: "JULAIRIN SURIN", school: "SMK KUNDASANG (Sukan Guru: Cemerlang Pendidikan Khas)" },
+                { title: "", name: "JURAIDI RIBIN", school: "SMK TIMBUA (Sukan Guru: Cemerlang SM)" },
+                { title: "", name: "MIJAN TULIN", school: "SK TAMPIOS (Sukan Guru: Cemerlang SR)" },
+                { title: "", name: "MOHAMAD ZAINI BIN SUBIN", school: "SMK MAT SALLEH (Sukan Guru: Pegawai Teknik & Pembangunan Sukan Cemerlang)" },
+                { title: "", name: "NOR AZMAN NAUTH", school: "SMK LOHAN (Sukan Guru: Pegawai Teknik & Pembangunan Sukan Cemerlang)" },
+                { title: "", name: "SIJAH BINTI AJIS", school: "SK PAGINATAN (Sukan Guru: Pegawai Teknik & Pembangunan Sukan Cemerlang)" }
+            ] },
+            { category: "MEKAR (INDIVIDU)", title: "Sukan Murid Cemerlang", recipients: [
+                { title: "", name: "MOHAMMAD ZAMIIL NAJIH B MOHAMAD ZAINI", school: "SMK MAT SALLEH (Sukan Murid: Lelaki Cemerlang SM)" },
+                { title: "", name: "IRWAN MUNIF BIN KAHIRUL ANUAR", school: "SK KUNDASANG (Sukan Murid: Lelaki Cemerlang SR)" },
+                { title: "", name: "NUR IZZ ZAYANI BINTI ZULHIMAT", school: "SMK LOHAN (Sukan Murid: Perempuan Cemerlang SM)" },
+                { title: "", name: "NUR AWLIYA BELLA BINTI ABDULLAH", school: "SK KINASARABAN (Sukan Murid: Perempuan Cemerlang SR)" }
+            ] },
 
             // MAKMUR
-            { 
-                category: "MAKMUR", 
-                title: "PIBG Cemerlang", 
-                recipients: [
-                    { title: "PIBG Cemerlang", name: "SMK MATUPANG JAYA", school: "Anugerah PIBG Cemerlang" },
-                    { title: "PIBG Cemerlang", name: "SMK LOHAN", school: "Anugerah PIBG Cemerlang" },
-                    { title: "PIBG Cemerlang", name: "SK MARAKAU", school: "Anugerah PIBG Cemerlang" },
-                    { title: "PIBG Cemerlang", name: "SK KILIMU", school: "Anugerah PIBG Cemerlang" },
-                    { title: "PIBG Cemerlang", name: "SK KERANAAN", school: "Anugerah PIBG Cemerlang" }
-                ] 
-            },
-            { category: "MAKMUR", title: "HEM Guru & Pengurusan Sekolah", recipients: [
-                { title: "Encik", name: "HEITIN BIN YUSOF @ HAITIN", school: "SMK LOHAN (PK HEM Cemerlang SM)" },
-                { title: "Encik", name: "JUMADI BIN MUSA", school: "SK KINAPULIDAN (PK HEM Cemerlang SR)" },
-                { title: "Encik", name: "ROBERT MADSATI", school: "SMK MATUPANG JAYA (Guru PPDa Cemerlang SM)" },
-                { title: "Encik", name: "RICHARD BIN GALABI", school: "SRK DON BOSCO (Guru PPDa Cemerlang SR)" },
+            { category: "MAKMUR", title: "HEM Guru Cemerlang", recipients: [
+                { title: "Encik", name: "PHILIP DOLINTING", school: "SMK KEMBURONGOH (Amalan Terbaik Bimbingan dan Kaunseling SM)" },
+                { title: "Encik", name: "MOHD AZLAN BIN YAKUB", school: "SK KILIMU (Amalan Terbaik Program Minda Sihat SR)" },
                 { title: "Puan", name: "VELBIRA VINCENT", school: "SMK KUNDASANG (Guru Inovasi Kaunseling SM)" },
                 { title: "Puan", name: "NAINEH MAHIRI", school: "SK LOHAN (Guru Inovasi Kaunseling SR)" },
-                { title: "Encik", name: "PHILIP DOLINTING", school: "SMK KEMBURONGOH (Amalan Terbaik B&K SM)" },
-                { title: "Encik", name: "MOHD AZLAN BIN YAKUB", school: "SK KILIMU (Amalan Terbaik Program Minda Sihat SR)" }
+                { title: "Encik", name: "ROBERT MADSATI", school: "SMK MATUPANG JAYA (Guru Pendidikan Pencegahan Dadah Cemerlang SM)" },
+                { title: "Encik", name: "RICHARD BIN GALABI", school: "SRK DON BOSCO (Guru Pendidikan Pencegahan Dadah Cemerlang SR)" },
+                { title: "Encik", name: "HEITIN BIN YUSOF @ HAITIN", school: "SMK LOHAN (PK HEM Cemerlang SM)" },
+                { title: "Encik", name: "JUMADI BIN MUSA", school: "SK KINAPULIDAN (PK HEM Cemerlang SR)" }
             ]},
             { category: "MAKMUR", title: "Jurulatih Utama (JU) Cemerlang", recipients: [
-                { title: "Encik", name: "MOHAMAD SYAHRIL SALIM", school: "SMK BUNDU TUHAN (JU e.Rekod Kaunseling)" },
+                { title: "Encik", name: "MOHAMAD SYAHRIL SALIM", school: "SMK BUNDU TUHAN (JU DAERAH e.REKOD KAUNSELING)" },
                 { title: "Encik", name: "MOHAMMAD HANAFIAH BIN HARIS", school: "SMK MAT SALLEH (JU Data Asrama)" },
                 { title: "Cik", name: "ANRIETA JAIM", school: "SMK ULU SUGUT (JU Kewangan Asrama)" },
-                { title: "Puan", name: "RUTSIA BINTI SAIBOL", school: "SMK MATUPANG JAYA (JU Minda Sihat SM)" },
-                { title: "Puan", name: "SARY DEWI BINTI JUNAEDI", school: "SK ST BENEDICT (JU Minda Sihat SR)" },
+                { title: "Puan", name: "RUTSIA BINTI SAIBOL", school: "SMK MATUPANG JAYA (JU Program Saringan Minda Sihat SM)" },
+                { title: "Puan", name: "SARY DEWI BINTI JUNAEDI", school: "SK ST BENEDICT (JU Program Saringan Minda Sihat SR)" },
                 { title: "Encik", name: "ASLISON GILI", school: "SMK TIMBUA (JU Psikometrik SM)" },
                 { title: "Encik", name: "MOHD AZLAN BIN YAKUB", school: "SK KILIMU (JU Psikometrik SR)" },
                 { title: "Puan", name: "ERVINA RAIMON", school: "SMK RANAU (JU SPBT SM)" },
-                { title: "Ustazah", name: "MARLINA @ NUR JANNAH BINTI SAMIN", school: "SK LANGSAT (JU SPBT SR)" }
+                { title: "Ustazah", name: "MARLINA@NUR JANNAH BINTI SAMIN", school: "SK LANGSAT (JU SPBT Daerah SR)" }
             ]},
-            { category: "MAKMUR", title: "KoKum Guru & Murid", recipients: [
+            { category: "MAKMUR", title: "KoKum Guru Cemerlang", recipients: [
                 { title: "Encik", name: "JUNI DIKUL", school: "SMK RANAU (KoKum Guru Cemerlang SM)" },
                 { title: "Puan", name: "JAIDAH BT WASILI @ MION", school: "SK TIMBUA (KoKum Guru Cemerlang SR)" },
                 { title: "Encik", name: "CHE OMAR BIN CHE SOH", school: "SMK ULU SUGUT (KoKum Guru KRS SM)" },
@@ -1478,23 +1555,25 @@
                 { title: "Cik", name: "AVELLA ANDAU", school: "SK TOBOH (KoKum Guru PT MBMMBI SR)" },
                 { title: "Puan", name: "ADRIANYSIA FRANCIS", school: "SMK KUNDASANG (KoKum Guru PT STEM SM)" },
                 { title: "Encik", name: "ELVIVIEN JUANNIS", school: "SK NAPONG (KoKum Guru PT STEM SR)" },
-                { title: "Puan", name: "NORMALA BINTI SALLEH", school: "SK PEKAN (KoKum Guru TKRS SR)" },
-                { title: "Murid", name: "DARYL DAVE DARWIN", school: "SMK LOHAN (KoKum Murid Cemerlang Lelaki SM)" },
-                { title: "Murid", name: "TAN HOLLIS", school: "SJK(C) PAI WEN (KoKum Murid Cemerlang Lelaki SR)" },
-                { title: "Murid", name: "NURUL SYAZWANI QISTINA BINTI MUHAMMAD AMIN", school: "SMKA MOHAMAD ALI (KoKum Murid Cemerlang Perempuan SM)" },
-                { title: "Murid", name: "QISTINA IZZ ZARA BINTI ROBLIN", school: "SK RANDAGONG (KoKum Murid Cemerlang Perempuan SR)" }
+                { title: "Puan", name: "NORMALA BINTI SALLEH", school: "SK PEKAN (KoKum Guru TKRS SR)" }
             ]},
-            { category: "MAKMUR", title: "Sukan Guru, Murid & Sekolah", recipients: [
-                { title: "Encik", name: "JULAIRIN SURIN", school: "SMK KUNDASANG (Sukan Guru Pendidikan Khas)" },
+            { category: "MAKMUR", title: "KoKum Murid Cemerlang", recipients: [
+                { title: "Murid", name: "DARYL DAVE DARWIN", school: "SMK LOHAN (Lelaki SM)" },
+                { title: "Murid", name: "TAN HOLLIS", school: "SJK(C) PAI WEN (Lelaki SR)" },
+                { title: "Murid", name: "NURUL SYAZWANI QISTINA BINTI MUHAMMAD AMIN", school: "SMKA MOHAMAD ALI (Perempuan SM)" },
+                { title: "Murid", name: "QISTINA IZZ ZARA BINTI ROBLIN", school: "SK RANDAGONG (Perempuan SR)" }
+            ]},
+            { category: "MAKMUR", title: "Sukan Guru & Murid Cemerlang", recipients: [
+                { title: "Encik", name: "JULAIRIN SURIN", school: "SMK KUNDASANG (Sukan Guru Cemerlang Pendidikan Khas)" },
                 { title: "Encik", name: "JURAIDI RIBIN", school: "SMK TIMBUA (Sukan Guru Cemerlang SM)" },
                 { title: "Encik", name: "MIJAN TULIN", school: "SK TAMPIOS (Sukan Guru Cemerlang SR)" },
-                { title: "Encik", name: "MOHAMAD ZAINI BIN SUBIN", school: "SMK MAT SALLEH (Pegawai Teknik & Pembangunan Sukan)" },
-                { title: "Encik", name: "NOR AZMAN NAUTH", school: "SMK LOHAN (Pegawai Teknik & Pembangunan Sukan)" },
-                { title: "Puan", name: "SIJAH BINTI AJIS", school: "SK PAGINATAN (Pegawai Teknik & Pembangunan Sukan)" },
-                { title: "Murid", name: "MOHAMMAD ZAMIIL NAJIH B MOHAMAD ZAINI", school: "SMK MAT SALLEH (Sukan Murid Lelaki SM)" },
-                { title: "Murid", name: "IRWAN MUNIF BIN KAHIRUL ANUAR", school: "SK KUNDASANG (Sukan Murid Lelaki SR)" },
-                { title: "Murid", name: "NUR IZZ ZAYANI BINTI ZULHIMAT", school: "SMK LOHAN (Sukan Murid Perempuan SM)" },
-                { title: "Murid", name: "NUR AWLIYA BELLA BINTI ABDULLAH", school: "SK KINASARABAN (Sukan Murid Perempuan SR)" }
+                { title: "Encik", name: "MOHAMAD ZAINI BIN SUBIN", school: "SMK MAT SALLEH (Sukan Guru: Pegawai Teknik & Pembangunan Sukan Cemerlang)" },
+                { title: "Encik", name: "NOR AZMAN NAUTH", school: "SMK LOHAN (Sukan Guru: Pegawai Teknik & Pembangunan Sukan Cemerlang)" },
+                { title: "Puan", name: "SIJAH BINTI AJIS", school: "SK PAGINATAN (Sukan Guru: Pegawai Teknik & Pembangunan Sukan Cemerlang)" },
+                { title: "Murid", name: "MOHAMMAD ZAMIIL NAJIH B MOHAMAD ZAINI", school: "SMK MAT SALLEH (Sukan Murid Lelaki Cemerlang SM)" },
+                { title: "Murid", name: "IRWAN MUNIF BIN KAHIRUL ANUAR", school: "SK KUNDASANG (Sukan Murid Lelaki Cemerlang SR)" },
+                { title: "Murid", name: "NUR IZZ ZAYANI BINTI ZULHIMAT", school: "SMK LOHAN (Sukan Murid Perempuan Cemerlang SM)" },
+                { title: "Murid", name: "NUR AWLIYA BELLA BINTI ABDULLAH", school: "SK KINASARABAN (Sukan Murid Perempuan Cemerlang SR)" }
             ]}
         ];
 
@@ -1533,7 +1612,6 @@
             if (sidebar && !sidebar.classList.contains('-translate-x-full')) {
                 window.toggleMobileSidebar();
             }
-
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
@@ -1702,11 +1780,9 @@
             if (sidebarLogo) autoRemoveLogoBackground(sidebarLogo);
             if (mobileHeaderLogo) autoRemoveLogoBackground(mobileHeaderLogo);
 
-            // Initialize default audio volume (20%)
             const audio = document.getElementById('award-audio');
             if (audio) audio.volume = currentVolume;
 
-            // Auto-start music at 20% on first tap/click anywhere on published page
             document.addEventListener('click', startAudioOnUserInteraction, { once: true });
             document.addEventListener('touchstart', startAudioOnUserInteraction, { once: true });
 
